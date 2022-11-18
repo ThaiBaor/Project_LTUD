@@ -30,7 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuForm = new System.Windows.Forms.ToolStripMenuItem();
-            this.hãngHàngKhôngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHHK = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,16 +47,17 @@
             // mnuForm
             // 
             this.mnuForm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hãngHàngKhôngToolStripMenuItem});
+            this.mnuHHK});
             this.mnuForm.Name = "mnuForm";
             this.mnuForm.Size = new System.Drawing.Size(47, 20);
             this.mnuForm.Text = "Form";
             // 
-            // hãngHàngKhôngToolStripMenuItem
+            // mnuHHK
             // 
-            this.hãngHàngKhôngToolStripMenuItem.Name = "hãngHàngKhôngToolStripMenuItem";
-            this.hãngHàngKhôngToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.hãngHàngKhôngToolStripMenuItem.Text = "Hãng Hàng Không";
+            this.mnuHHK.Name = "mnuHHK";
+            this.mnuHHK.Size = new System.Drawing.Size(173, 22);
+            this.mnuHHK.Text = "Hãng Hàng Không";
+            this.mnuHHK.Click += new System.EventHandler(this.mnuHHK_Click);
             // 
             // frmMain
             // 
@@ -80,7 +81,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mnuForm;
-        private System.Windows.Forms.ToolStripMenuItem hãngHàngKhôngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuHHK;
     }
 }
 

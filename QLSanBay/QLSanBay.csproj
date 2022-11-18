@@ -55,6 +55,12 @@
     <Compile Include="FormHHK.Designer.cs">
       <DependentUpon>FormHHK.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPhongBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPhongBan.Designer.cs">
+      <DependentUpon>FormPhongBan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -62,6 +68,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHHK.resx">
       <DependentUpon>FormHHK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPhongBan.resx">
+      <DependentUpon>FormPhongBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

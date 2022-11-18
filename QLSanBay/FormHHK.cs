@@ -21,29 +21,28 @@ namespace QLSanBay
         {
             loadData();
         }
-        // tao connect
+        // tạo connect
         SqlConnection con = new SqlConnection("Data Source =.; Initial Catalog = QLSANBAY; Integrated Security = True");
         public void loadData()
         {
-            txtMaHHK.ReadOnly = false;
             try
             {
-                // mo ket noi
+                // mở kết nối
                 con.Open();
-                // khai bao command
+                // khai báo command
                 SqlCommand cmdHHK = new SqlCommand();
                 cmdHHK.CommandText = "sp_layDSHANGHANGKHONG";
                 cmdHHK.CommandType = CommandType.StoredProcedure;
-                // gan ket noi
+                // gán kết nối
                 cmdHHK.Connection = con;
-                // tao doi tuong dataAdapter
+                // tạo đối tượng dataAdapter
                 SqlDataAdapter da = new SqlDataAdapter(cmdHHK);
                 DataTable dtHHK = new DataTable();
-                // fill data
+                // fill data 
                 da.Fill(dtHHK);
-                // gan du lieu cho bang
+                // gán dữ liệu cho bảng
                 dgvHHK.DataSource = dtHHK;
-                // dong ket noi
+                // đóng kết nối
                 con.Close();
             }
             catch (Exception e)
@@ -63,22 +62,22 @@ namespace QLSanBay
             int kq = 0;
             try
             {
-                // mo ket noi
+                // mở kết nối
                 con.Open();
-                // khai bao command
+                // khai báo command
                 SqlCommand cmdHHK = new SqlCommand("sp_themHANGHANGKHONG", con);
                 cmdHHK.CommandText = "sp_themHANGHANGKHONG";
                 cmdHHK.CommandType = CommandType.StoredProcedure;
                 cmdHHK.Parameters.AddWithValue("@MAHANGHK", txtMaHHK.Text);
                 cmdHHK.Parameters.AddWithValue("@TENHANGHK", txtTenHHK.Text);
                 kq = cmdHHK.ExecuteNonQuery();
-                // dong ket noi
+                // đóng kết nối
                 con.Close();
             }
             catch (Exception ex)
             {
                 con.Close();
-                MessageBox.Show($"Lỗi kết nối: {ex.Message}");
+                MessageBox.Show($"Lỗi dữ liệu: Mã hãng hàng không đã tồn tại!", "Thông báo");
             }
             finally
             {
@@ -99,7 +98,6 @@ namespace QLSanBay
 
         private void dgvHHK_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaHHK.ReadOnly = true;
             txtMaHHK.Text = dgvHHK.CurrentRow.Cells[0].Value.ToString();
             txtTenHHK.Text = dgvHHK.CurrentRow.Cells[1].Value.ToString();
         }
@@ -109,9 +107,9 @@ namespace QLSanBay
             int kq = -1;
             try
             {
-                // mo ket noi
+                // mở kết nối
                 con.Open();
-                // khai bao command
+                // khai báo command
                 SqlCommand cmdHHK = new SqlCommand("sp_xoaHANGHANGKHONG", con);
                 cmdHHK.CommandText = "sp_xoaHANGHANGKHONG";
                 cmdHHK.CommandType = CommandType.StoredProcedure;
@@ -125,7 +123,7 @@ namespace QLSanBay
                     kq = -2;
                 }
                 con.Close();
-                // dong ket noi
+                // đóng kết nối
             }
             catch (Exception ex)
             {
@@ -155,21 +153,22 @@ namespace QLSanBay
             int kq = -1;
             try
             {
-                // mo ket noi
+                // mở kết nối
                 con.Open();
-                // khai bao command
+                // khai báo command
                 SqlCommand cmdHHK = new SqlCommand("sp_suaHANGHANGKHONG", con);
                 cmdHHK.CommandText = "sp_suaHANGHANGKHONG";
                 cmdHHK.CommandType = CommandType.StoredProcedure;
                 cmdHHK.Parameters.AddWithValue("@MAHANGHK", txtMaHHK.Text);
                 cmdHHK.Parameters.AddWithValue("@TENHANGHK", txtTenHHK.Text);
                 kq = cmdHHK.ExecuteNonQuery();
-                // dong ket noi
+                // đóng kết nối
                 con.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi kết nối: {ex.Message}");
+                con.Close();
+                MessageBox.Show($"Lỗi kết nối: {ex.Message}!");
             }
             finally
             {
@@ -180,7 +179,7 @@ namespace QLSanBay
                 }                
                 else
                 {
-                    MessageBox.Show("Cập nhật không thành công", "Thông báo");
+                    MessageBox.Show("Cập nhật không thành công do Mã hãng hàng không bị thay đổi hoặc Tên hãng hàng không không hợp lệ", "Thông báo");
                 }
                 txtMaHHK.Clear();
                 txtTenHHK.Clear();
@@ -190,7 +189,7 @@ namespace QLSanBay
 
         private void txtMaHHK_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Khong cho nhap vao du lieu khac so va chu hay lon hon 10 ky tu
+            // Không cho nhập vào dữ liệu khác chữ và số hay nhập nhiều hơn 10 ký tự 
             char ch = e.KeyChar;
             if (!char.IsLetterOrDigit(ch) && ch != (char)Keys.Back)
             {
@@ -204,7 +203,7 @@ namespace QLSanBay
 
         private void txtTenHHK_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Khong cho nhap vao du lieu khac chu hay lon hon 25 ky tu
+            // Không cho nhập vào dữ liệu khác chữ hay nhập nhiều hơn 25 ký tự 
             char ch = e.KeyChar;
             if (!char.IsLetter(ch) && !char.IsWhiteSpace(ch) && ch != (char)Keys.Back)
             {
@@ -213,6 +212,19 @@ namespace QLSanBay
             else if (txtTenHHK.TextLength > 25 && ch != (char)Keys.Back)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmHHK_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
             }
         }
     }

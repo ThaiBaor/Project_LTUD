@@ -15,7 +15,7 @@ namespace QLSanBay
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmHHK());
+            Application.Run(new frmPhongBan());
         }
     }
 }

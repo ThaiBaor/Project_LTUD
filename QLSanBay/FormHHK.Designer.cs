@@ -112,6 +112,7 @@
             this.btnThoat.TabIndex = 6;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // dgvHHK
             // 
@@ -149,6 +150,7 @@
             this.Name = "frmHHK";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Hãng Hàng Không";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHHK_FormClosing);
             this.Load += new System.EventHandler(this.frmHHK_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHHK)).EndInit();
             this.ResumeLayout(false);

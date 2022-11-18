@@ -16,6 +16,10 @@ namespace QLSanBay
             InitializeComponent();
         }
 
-        
+        private void mnuHHK_Click(object sender, EventArgs e)
+        {
+            frmHHK HHKform = new frmHHK();
+            HHKform.ShowDialog();
+        }
     }
 }
