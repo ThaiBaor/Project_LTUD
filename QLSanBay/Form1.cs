@@ -21,5 +21,11 @@ namespace QLSanBay
             frmHHK HHKform = new frmHHK();
             HHKform.ShowDialog();
         }
+
+        private void mnuPB_Click(object sender, EventArgs e)
+        {
+            frmPhongBan PBform = new frmPhongBan();
+            PBform.ShowDialog();
+        }
     }
 }

@@ -179,7 +179,7 @@ namespace QLSanBay
                 }                
                 else
                 {
-                    MessageBox.Show("Cập nhật không thành công do Mã hãng hàng không bị thay đổi hoặc Tên hãng hàng không không hợp lệ", "Thông báo");
+                    MessageBox.Show("Cập nhật không thành công do 'Mã hãng hàng' không bị thay đổi hoặc 'Tên hãng hàng' không không hợp lệ", "Thông báo");
                 }
                 txtMaHHK.Clear();
                 txtTenHHK.Clear();

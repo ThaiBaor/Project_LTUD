@@ -42,43 +42,48 @@
             // 
             // txtMaHHK
             // 
-            this.txtMaHHK.Location = new System.Drawing.Point(168, 42);
+            this.txtMaHHK.Location = new System.Drawing.Point(224, 52);
+            this.txtMaHHK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMaHHK.Name = "txtMaHHK";
-            this.txtMaHHK.Size = new System.Drawing.Size(223, 20);
+            this.txtMaHHK.Size = new System.Drawing.Size(296, 22);
             this.txtMaHHK.TabIndex = 1;
             this.txtMaHHK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaHHK_KeyPress);
             // 
             // txtTenHHK
             // 
-            this.txtTenHHK.Location = new System.Drawing.Point(168, 78);
+            this.txtTenHHK.Location = new System.Drawing.Point(224, 96);
+            this.txtTenHHK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTenHHK.Name = "txtTenHHK";
-            this.txtTenHHK.Size = new System.Drawing.Size(223, 20);
+            this.txtTenHHK.Size = new System.Drawing.Size(296, 22);
             this.txtTenHHK.TabIndex = 2;
             this.txtTenHHK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenHHK_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 45);
+            this.label1.Location = new System.Drawing.Point(64, 55);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.Size = new System.Drawing.Size(148, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã Hãng Hàng Không";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 81);
+            this.label2.Location = new System.Drawing.Point(64, 100);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 13);
+            this.label2.Size = new System.Drawing.Size(154, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên Hãng Hàng Không";
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(31, 119);
+            this.btnThem.Location = new System.Drawing.Point(41, 146);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(72, 30);
+            this.btnThem.Size = new System.Drawing.Size(96, 37);
             this.btnThem.TabIndex = 3;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -86,9 +91,10 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(133, 119);
+            this.btnXoa.Location = new System.Drawing.Point(177, 146);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(72, 30);
+            this.btnXoa.Size = new System.Drawing.Size(96, 37);
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -96,9 +102,10 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(245, 119);
+            this.btnCapNhat.Location = new System.Drawing.Point(327, 146);
+            this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(72, 30);
+            this.btnCapNhat.Size = new System.Drawing.Size(96, 37);
             this.btnCapNhat.TabIndex = 5;
             this.btnCapNhat.Text = "Cập Nhật";
             this.btnCapNhat.UseVisualStyleBackColor = true;
@@ -106,9 +113,10 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(358, 117);
+            this.btnThoat.Location = new System.Drawing.Point(477, 144);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(72, 32);
+            this.btnThoat.Size = new System.Drawing.Size(96, 39);
             this.btnThoat.TabIndex = 6;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -122,21 +130,23 @@
             this.dgvHHK.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgvHHK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHHK.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvHHK.Location = new System.Drawing.Point(0, 176);
+            this.dgvHHK.Location = new System.Drawing.Point(0, 216);
+            this.dgvHHK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvHHK.MultiSelect = false;
             this.dgvHHK.Name = "dgvHHK";
             this.dgvHHK.ReadOnly = true;
+            this.dgvHHK.RowHeadersWidth = 51;
             this.dgvHHK.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHHK.Size = new System.Drawing.Size(478, 150);
+            this.dgvHHK.Size = new System.Drawing.Size(637, 185);
             this.dgvHHK.TabIndex = 3;
             this.dgvHHK.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHHK_CellClick);
             // 
             // frmHHK
             // 
             this.AcceptButton = this.btnThem;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 326);
+            this.ClientSize = new System.Drawing.Size(637, 401);
             this.Controls.Add(this.dgvHHK);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnCapNhat);
@@ -147,6 +157,8 @@
             this.Controls.Add(this.txtTenHHK);
             this.Controls.Add(this.txtMaHHK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
             this.Name = "frmHHK";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Hãng Hàng Không";
