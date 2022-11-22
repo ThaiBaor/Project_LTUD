@@ -55,6 +55,12 @@
     <Compile Include="FormHHK.Designer.cs">
       <DependentUpon>FormHHK.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNV.Designer.cs">
+      <DependentUpon>FormNV.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPhongBan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHHK.resx">
       <DependentUpon>FormHHK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNV.resx">
+      <DependentUpon>FormNV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPhongBan.resx">
       <DependentUpon>FormPhongBan.cs</DependentUpon>

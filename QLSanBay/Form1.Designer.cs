@@ -32,6 +32,7 @@
             this.mnuForm = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHHK = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPB = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuNV = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +51,8 @@
             // 
             this.mnuForm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuHHK,
-            this.mnuPB});
+            this.mnuPB,
+            this.mnuNV});
             this.mnuForm.Name = "mnuForm";
             this.mnuForm.Size = new System.Drawing.Size(57, 24);
             this.mnuForm.Text = "Form";
@@ -68,6 +70,13 @@
             this.mnuPB.Size = new System.Drawing.Size(224, 26);
             this.mnuPB.Text = "Phòng Ban";
             this.mnuPB.Click += new System.EventHandler(this.mnuPB_Click);
+            // 
+            // mnuNV
+            // 
+            this.mnuNV.Name = "mnuNV";
+            this.mnuNV.Size = new System.Drawing.Size(224, 26);
+            this.mnuNV.Text = "Nhân Viên";
+            this.mnuNV.Click += new System.EventHandler(this.mnuNV_Click);
             // 
             // frmMain
             // 
@@ -94,6 +103,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuForm;
         private System.Windows.Forms.ToolStripMenuItem mnuHHK;
         private System.Windows.Forms.ToolStripMenuItem mnuPB;
+        private System.Windows.Forms.ToolStripMenuItem mnuNV;
     }
 }
 

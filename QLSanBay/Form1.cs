@@ -27,5 +27,11 @@ namespace QLSanBay
             frmPhongBan PBform = new frmPhongBan();
             PBform.ShowDialog();
         }
+
+        private void mnuNV_Click(object sender, EventArgs e)
+        {
+            frmNV NVForm = new frmNV();
+            NVForm.ShowDialog();
+        }
     }
 }
