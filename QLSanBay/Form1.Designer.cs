@@ -33,6 +33,9 @@
             this.mnuHHK = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPB = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNV = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuVeMB = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuLoaiVe = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPC = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +55,9 @@
             this.mnuForm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuHHK,
             this.mnuPB,
-            this.mnuNV});
+            this.mnuNV,
+            this.mnuVeMB,
+            this.mnuPC});
             this.mnuForm.Name = "mnuForm";
             this.mnuForm.Size = new System.Drawing.Size(57, 24);
             this.mnuForm.Text = "Form";
@@ -77,6 +82,27 @@
             this.mnuNV.Size = new System.Drawing.Size(224, 26);
             this.mnuNV.Text = "Nhân Viên";
             this.mnuNV.Click += new System.EventHandler(this.mnuNV_Click);
+            // 
+            // mnuVeMB
+            // 
+            this.mnuVeMB.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuLoaiVe});
+            this.mnuVeMB.Name = "mnuVeMB";
+            this.mnuVeMB.Size = new System.Drawing.Size(224, 26);
+            this.mnuVeMB.Text = "Vé Máy Bay";
+            // 
+            // mnuLoaiVe
+            // 
+            this.mnuLoaiVe.Name = "mnuLoaiVe";
+            this.mnuLoaiVe.Size = new System.Drawing.Size(224, 26);
+            this.mnuLoaiVe.Text = "Loại Vé";
+            this.mnuLoaiVe.Click += new System.EventHandler(this.mnuLoaiVe_Click);
+            // 
+            // mnuPC
+            // 
+            this.mnuPC.Name = "mnuPC";
+            this.mnuPC.Size = new System.Drawing.Size(224, 26);
+            this.mnuPC.Text = "Phân Công";
             // 
             // frmMain
             // 
@@ -104,6 +130,9 @@
         private System.Windows.Forms.ToolStripMenuItem mnuHHK;
         private System.Windows.Forms.ToolStripMenuItem mnuPB;
         private System.Windows.Forms.ToolStripMenuItem mnuNV;
+        private System.Windows.Forms.ToolStripMenuItem mnuVeMB;
+        private System.Windows.Forms.ToolStripMenuItem mnuLoaiVe;
+        private System.Windows.Forms.ToolStripMenuItem mnuPC;
     }
 }
 

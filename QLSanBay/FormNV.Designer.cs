@@ -279,6 +279,9 @@ namespace QLSanBay
             // 
             // dgvNV
             // 
+            this.dgvNV.AllowUserToAddRows = false;
+            this.dgvNV.AllowUserToDeleteRows = false;
+            this.dgvNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNV.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvNV.Location = new System.Drawing.Point(0, 420);

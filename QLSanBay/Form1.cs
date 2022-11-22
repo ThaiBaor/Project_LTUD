@@ -33,5 +33,11 @@ namespace QLSanBay
             frmNV NVForm = new frmNV();
             NVForm.ShowDialog();
         }
+
+        private void mnuLoaiVe_Click(object sender, EventArgs e)
+        {
+            frmLoaiVe LVForm = new frmLoaiVe();
+            LVForm.ShowDialog();
+        }
     }
 }

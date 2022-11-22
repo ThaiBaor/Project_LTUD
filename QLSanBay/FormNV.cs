@@ -101,7 +101,7 @@ namespace QLSanBay
         {
             // Không cho nhập vào dữ liệu khác chữ hay nhập nhiều hơn 30 ký tự 
             char ch = e.KeyChar;
-            if (!char.IsLetter(ch) && ch != (char)Keys.Back)
+            if (!char.IsLetter(ch) && ch != (char)Keys.Back && !char.IsWhiteSpace(ch))
             {
                 e.Handled = true;
             }
@@ -176,7 +176,7 @@ namespace QLSanBay
         {
             // Không cho nhập vào dữ liệu khác chữ hay nhập nhiều hơn 50 ký tự 
             char ch = e.KeyChar;
-            if (!char.IsLetter(ch) && ch != (char)Keys.Back)
+            if (!char.IsLetter(ch) && ch != (char)Keys.Back && !char.IsWhiteSpace(ch))
             {
                 e.Handled = true;
             }

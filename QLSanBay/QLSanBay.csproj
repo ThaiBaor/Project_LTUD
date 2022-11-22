@@ -55,6 +55,12 @@
     <Compile Include="FormHHK.Designer.cs">
       <DependentUpon>FormHHK.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLoaiVe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoaiVe.Designer.cs">
+      <DependentUpon>FormLoaiVe.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHHK.resx">
       <DependentUpon>FormHHK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoaiVe.resx">
+      <DependentUpon>FormLoaiVe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNV.resx">
       <DependentUpon>FormNV.cs</DependentUpon>

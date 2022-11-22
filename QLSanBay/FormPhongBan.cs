@@ -130,11 +130,11 @@ namespace QLSanBay
         {
             // Không cho nhập vào dữ liệu khác chữ hay nhập nhiều hơn 25 ký tự 
             char ch = e.KeyChar;
-            if (!char.IsLetter(ch) && ch != (char)Keys.Back)
+            if (!char.IsLetter(ch) && ch != (char)Keys.Back && !char.IsWhiteSpace(ch))
             {
                 e.Handled = true;
             }
-            else if (txtMaPhong.TextLength > 25 && ch != (char)Keys.Back)
+            else if (txtTenPhong.TextLength > 25 && ch != (char)Keys.Back)
             {
                 e.Handled = true;
             }
