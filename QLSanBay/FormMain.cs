@@ -51,5 +51,29 @@ namespace QLSanBay
             frmPC PCForm = new frmPC();
             PCForm.ShowDialog();
         }
+
+        private void mnuMayBay_Click(object sender, EventArgs e)
+        {
+            frmMayBay MBForm = new frmMayBay();
+            MBForm.ShowDialog();
+        }
+
+        private void mnuChuyenBay_Click(object sender, EventArgs e)
+        {
+            frmChuyenBay CBForm = new frmChuyenBay();
+            CBForm.ShowDialog();
+        }
+
+        private void mnuLichBay_Click(object sender, EventArgs e)
+        {
+            frmLichBay LBForm = new frmLichBay();
+            LBForm.ShowDialog();
+        }
+
+        private void mnuHanhKhach_Click(object sender, EventArgs e)
+        {
+            frmHanhKhach HKForm = new frmHanhKhach();
+            HKForm.ShowDialog();
+        }
     }
 }

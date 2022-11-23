@@ -136,7 +136,7 @@ namespace QLSanBay
             // 
             this.btnXoa.Location = new System.Drawing.Point(424, 92);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(86, 25);
+            this.btnXoa.Size = new System.Drawing.Size(93, 35);
             this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -145,7 +145,7 @@ namespace QLSanBay
             // 
             this.btnThem.Location = new System.Drawing.Point(424, 37);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(86, 25);
+            this.btnThem.Size = new System.Drawing.Size(93, 35);
             this.btnThem.TabIndex = 4;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -168,18 +168,18 @@ namespace QLSanBay
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(424, 201);
+            this.btnThoat.Location = new System.Drawing.Point(424, 203);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(86, 25);
+            this.btnThoat.Size = new System.Drawing.Size(93, 37);
             this.btnThoat.TabIndex = 3;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(424, 146);
+            this.btnCapNhat.Location = new System.Drawing.Point(424, 150);
             this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(86, 25);
+            this.btnCapNhat.Size = new System.Drawing.Size(93, 35);
             this.btnCapNhat.TabIndex = 4;
             this.btnCapNhat.Text = "Cập Nhật";
             this.btnCapNhat.UseVisualStyleBackColor = true;

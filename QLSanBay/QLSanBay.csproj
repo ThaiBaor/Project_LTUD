@@ -43,11 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChuyenBay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChuyenBay.Designer.cs">
+      <DependentUpon>FormChuyenBay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHanhKhach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHanhKhach.Designer.cs">
+      <DependentUpon>FormHanhKhach.cs</DependentUpon>
     </Compile>
     <Compile Include="FormHHK.cs">
       <SubType>Form</SubType>
@@ -55,11 +67,23 @@
     <Compile Include="FormHHK.Designer.cs">
       <DependentUpon>FormHHK.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLichBay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLichBay.Designer.cs">
+      <DependentUpon>FormLichBay.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLoaiVe.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLoaiVe.Designer.cs">
       <DependentUpon>FormLoaiVe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMayBay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMayBay.Designer.cs">
+      <DependentUpon>FormMayBay.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNV.cs">
       <SubType>Form</SubType>
@@ -87,14 +111,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChuyenBay.resx">
+      <DependentUpon>FormChuyenBay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHanhKhach.resx">
+      <DependentUpon>FormHanhKhach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHHK.resx">
       <DependentUpon>FormHHK.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLichBay.resx">
+      <DependentUpon>FormLichBay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLoaiVe.resx">
       <DependentUpon>FormLoaiVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMayBay.resx">
+      <DependentUpon>FormMayBay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNV.resx">
       <DependentUpon>FormNV.cs</DependentUpon>
