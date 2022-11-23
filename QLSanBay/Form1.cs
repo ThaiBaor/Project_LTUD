@@ -39,5 +39,17 @@ namespace QLSanBay
             frmLoaiVe LVForm = new frmLoaiVe();
             LVForm.ShowDialog();
         }
+
+        private void mnuVeMB_Click(object sender, EventArgs e)
+        {
+            frmVMB VMBForm = new frmVMB();
+            VMBForm.ShowDialog();
+;        }
+
+        private void mnuPC_Click(object sender, EventArgs e)
+        {
+            frmPC PCForm = new frmPC();
+            PCForm.ShowDialog();
+        }
     }
 }

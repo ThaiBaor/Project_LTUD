@@ -90,6 +90,7 @@
             this.mnuVeMB.Name = "mnuVeMB";
             this.mnuVeMB.Size = new System.Drawing.Size(224, 26);
             this.mnuVeMB.Text = "Vé Máy Bay";
+            this.mnuVeMB.Click += new System.EventHandler(this.mnuVeMB_Click);
             // 
             // mnuLoaiVe
             // 
@@ -103,6 +104,7 @@
             this.mnuPC.Name = "mnuPC";
             this.mnuPC.Size = new System.Drawing.Size(224, 26);
             this.mnuPC.Text = "Phân Công";
+            this.mnuPC.Click += new System.EventHandler(this.mnuPC_Click);
             // 
             // frmMain
             // 

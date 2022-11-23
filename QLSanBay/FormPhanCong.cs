@@ -9,11 +9,13 @@ using System.Windows.Forms;
 
 namespace QLSanBay
 {
-    public partial class frmVMB : Form
+    public partial class frmPC : Form
     {
-        public frmVMB()
+        public frmPC()
         {
             InitializeComponent();
         }
+
+        
     }
 }

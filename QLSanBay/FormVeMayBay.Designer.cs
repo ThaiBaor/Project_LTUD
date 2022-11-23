@@ -1,7 +1,7 @@
 ﻿
 namespace QLSanBay
 {
-    partial class FormVeMayBay
+    partial class frmVMB
     {
         /// <summary>
         /// Required designer variable.
@@ -256,7 +256,7 @@ namespace QLSanBay
             this.cboNgayKhoiHanh.Size = new System.Drawing.Size(157, 24);
             this.cboNgayKhoiHanh.TabIndex = 2;
             // 
-            // FormVeMayBay
+            // frmVMB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -286,7 +286,8 @@ namespace QLSanBay
             this.Controls.Add(this.txtMaSoVe);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "FormVeMayBay";
+            this.MaximizeBox = false;
+            this.Name = "frmVMB";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Vé Máy Bay";
             ((System.ComponentModel.ISupportInitialize)(this.grvVMB)).EndInit();
