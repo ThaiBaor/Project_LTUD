@@ -163,6 +163,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUS_QLSanBay\BUS_QLSanBay.csproj">
+      <Project>{45b8ecfc-7a21-491e-a1bc-cae5de4e3886}</Project>
+      <Name>BUS_QLSanBay</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ET_QLSanBay\ET_QLSanBay.csproj">
+      <Project>{8032cc63-80f6-4dcf-973e-a4d1f25e50ea}</Project>
+      <Name>ET_QLSanBay</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -7,6 +7,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BUS_QLSanBay;
+using ET_QLSanBay;
 
 namespace QLSanBay
 {
@@ -16,39 +18,20 @@ namespace QLSanBay
         {
             InitializeComponent();
         }
-
+        BUS_HHK busHHK = new BUS_HHK();
+        ET_HHK etHHK = new ET_HHK();
+        
         private void frmHHK_Load(object sender, EventArgs e)
         {
             loadData();
+            btnThem.Enabled = false;
+            txtMaHHK.ReadOnly = true;
         }
         // tạo connect
         SqlConnection con = new SqlConnection("Data Source =.; Initial Catalog = QLSANBAY; Integrated Security = True");
         public void loadData()
         {
-            try
-            {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                SqlCommand cmdHHK = new SqlCommand();
-                cmdHHK.CommandText = "sp_layDSHANGHANGKHONG";
-                cmdHHK.CommandType = CommandType.StoredProcedure;
-                // gán kết nối
-                cmdHHK.Connection = con;
-                // tạo đối tượng dataAdapter
-                SqlDataAdapter da = new SqlDataAdapter(cmdHHK);
-                DataTable dtHHK = new DataTable();
-                // fill data 
-                da.Fill(dtHHK);
-                // gán dữ liệu cho bảng
-                dgvHHK.DataSource = dtHHK;
-                // đóng kết nối
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show($"Lỗi kết nối: {e.Message}");
-            }
+            dgvHHK.DataSource = busHHK.layDSHHK();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -59,131 +42,66 @@ namespace QLSanBay
                 txtMaHHK.Focus();
                 return;
             }
-            int kq = 0;
-            try
+            etHHK.MaHHK = txtMaHHK.Text;
+            etHHK.TenHHK = txtTenHHK.Text;
+            int kq = busHHK.themHHK(etHHK);
+            if (kq > 0)
             {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                SqlCommand cmdHHK = new SqlCommand("sp_themHANGHANGKHONG", con);
-                cmdHHK.CommandText = "sp_themHANGHANGKHONG";
-                cmdHHK.CommandType = CommandType.StoredProcedure;
-                cmdHHK.Parameters.AddWithValue("@MAHANGHK", txtMaHHK.Text);
-                cmdHHK.Parameters.AddWithValue("@TENHANGHK", txtTenHHK.Text);
-                kq = cmdHHK.ExecuteNonQuery();
-                // đóng kết nối
-                con.Close();
+                MessageBox.Show("Thêm thành công.","Thông báo");
+                loadData();
+                btnThem.Enabled = false;
+                txtMaHHK.ReadOnly = true;
             }
-            catch (Exception ex)
+            else
             {
-                con.Close();
-                MessageBox.Show($"Lỗi dữ liệu: Mã hãng hàng không đã tồn tại!", "Thông báo");
+                MessageBox.Show("Thêm không thành công.", "Thông báo");
             }
-            finally
-            {
-                if (kq > 0)
-                {
-                    MessageBox.Show("Thêm thành công", "Thông báo");
-                    loadData();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm không thành công", "Thông báo");
-                }
-                txtMaHHK.Clear();
-                txtTenHHK.Clear();
-                txtMaHHK.Focus();
-            }
+            
         }
 
         private void dgvHHK_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtMaHHK.Text = dgvHHK.CurrentRow.Cells[0].Value.ToString();
             txtTenHHK.Text = dgvHHK.CurrentRow.Cells[1].Value.ToString();
+            etHHK.MaHHK = txtMaHHK.Text;
+            etHHK.TenHHK = txtTenHHK.Text;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            int kq = -1;
-            try
+            if (MessageBox.Show("Bạn có muốn xóa không?","Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                SqlCommand cmdHHK = new SqlCommand("sp_xoaHANGHANGKHONG", con);
-                cmdHHK.CommandText = "sp_xoaHANGHANGKHONG";
-                cmdHHK.CommandType = CommandType.StoredProcedure;
-                cmdHHK.Parameters.AddWithValue("@MAHANGHK", txtMaHHK.Text);
-                if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    kq = cmdHHK.ExecuteNonQuery();
-                }
-                else
-                {
-                    kq = -2;
-                }
-                con.Close();
-                // đóng kết nối
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi kết nối: {ex.Message}");
-            }
-            finally
-            {
+                int kq = busHHK.xoaHHK(etHHK);
+                etHHK.MaHHK = txtMaHHK.Text;
                 if (kq > 0)
                 {
-                    MessageBox.Show("Xóa thành công", "Thông báo");
+                    MessageBox.Show("Xóa thành công.", "Thông báo");
                     loadData();
-                }
-                else if (kq == -2)
-                {
                 }
                 else
                 {
-                    MessageBox.Show("Xóa không thành công", "Thông báo");
+                    MessageBox.Show("Xóa không thành công.", "Thông báo");
                 }
-                txtMaHHK.Clear();
-                txtTenHHK.Clear();
+            }
+            else
+            {
+                return;
             }
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            int kq = -1;
-            try
+            int kq = busHHK.capNhatHHK(etHHK);
+            etHHK.MaHHK = txtMaHHK.Text;
+            etHHK.TenHHK = txtTenHHK.Text;
+            if (kq > 0)
             {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                SqlCommand cmdHHK = new SqlCommand("sp_suaHANGHANGKHONG", con);
-                cmdHHK.CommandText = "sp_suaHANGHANGKHONG";
-                cmdHHK.CommandType = CommandType.StoredProcedure;
-                cmdHHK.Parameters.AddWithValue("@MAHANGHK", txtMaHHK.Text);
-                cmdHHK.Parameters.AddWithValue("@TENHANGHK", txtTenHHK.Text);
-                kq = cmdHHK.ExecuteNonQuery();
-                // đóng kết nối
-                con.Close();
+                MessageBox.Show("Cập nhật thành công.", "Thông báo");
+                loadData();
             }
-            catch (Exception ex)
+            else
             {
-                con.Close();
-                MessageBox.Show($"Lỗi kết nối: {ex.Message}!");
-            }
-            finally
-            {
-                if (kq > 0)
-                {
-                    MessageBox.Show("Cập nhật thành công", "Thông báo");
-                    loadData();
-                }                
-                else
-                {
-                    MessageBox.Show("Cập nhật không thành công do 'Mã hãng hàng' không bị thay đổi hoặc 'Tên hãng hàng' không không hợp lệ", "Thông báo");
-                }
-                txtMaHHK.Clear();
-                txtTenHHK.Clear();
-                txtMaHHK.Focus();
+                MessageBox.Show("Cập nhật không thành công.", "Thông báo");
             }
         }
 
@@ -226,6 +144,16 @@ namespace QLSanBay
             {
                 e.Cancel = true;
             }
+        }
+
+        private void btnMoi_Click(object sender, EventArgs e)
+        {
+            txtMaHHK.Enabled = true;
+            txtMaHHK.Clear();
+            txtMaHHK.Focus();
+            txtTenHHK.Clear();
+            btnThem.Enabled = true;
+            txtMaHHK.ReadOnly = false;
         }
     }
 }

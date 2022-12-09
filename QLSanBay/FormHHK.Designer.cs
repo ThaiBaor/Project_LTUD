@@ -37,13 +37,14 @@
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.dgvHHK = new System.Windows.Forms.DataGridView();
+            this.btnMoi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHHK)).BeginInit();
             this.SuspendLayout();
             // 
             // txtMaHHK
             // 
             this.txtMaHHK.Location = new System.Drawing.Point(224, 52);
-            this.txtMaHHK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaHHK.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaHHK.Name = "txtMaHHK";
             this.txtMaHHK.Size = new System.Drawing.Size(296, 22);
             this.txtMaHHK.TabIndex = 1;
@@ -52,7 +53,7 @@
             // txtTenHHK
             // 
             this.txtTenHHK.Location = new System.Drawing.Point(224, 96);
-            this.txtTenHHK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTenHHK.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenHHK.Name = "txtTenHHK";
             this.txtTenHHK.Size = new System.Drawing.Size(296, 22);
             this.txtTenHHK.TabIndex = 2;
@@ -80,8 +81,8 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(41, 146);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThem.Location = new System.Drawing.Point(122, 146);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(96, 37);
             this.btnThem.TabIndex = 3;
@@ -91,8 +92,8 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(177, 146);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoa.Location = new System.Drawing.Point(320, 146);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(96, 37);
             this.btnXoa.TabIndex = 4;
@@ -102,8 +103,8 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(327, 146);
-            this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCapNhat.Location = new System.Drawing.Point(424, 146);
+            this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(96, 37);
             this.btnCapNhat.TabIndex = 5;
@@ -113,10 +114,10 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(477, 144);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThoat.Location = new System.Drawing.Point(528, 146);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(96, 39);
+            this.btnThoat.Size = new System.Drawing.Size(96, 37);
             this.btnThoat.TabIndex = 6;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -131,7 +132,7 @@
             this.dgvHHK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHHK.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvHHK.Location = new System.Drawing.Point(0, 216);
-            this.dgvHHK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvHHK.Margin = new System.Windows.Forms.Padding(4);
             this.dgvHHK.MultiSelect = false;
             this.dgvHHK.Name = "dgvHHK";
             this.dgvHHK.ReadOnly = true;
@@ -141,12 +142,23 @@
             this.dgvHHK.TabIndex = 3;
             this.dgvHHK.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHHK_CellClick);
             // 
+            // btnMoi
+            // 
+            this.btnMoi.Location = new System.Drawing.Point(12, 146);
+            this.btnMoi.Name = "btnMoi";
+            this.btnMoi.Size = new System.Drawing.Size(96, 37);
+            this.btnMoi.TabIndex = 7;
+            this.btnMoi.Text = "Mới";
+            this.btnMoi.UseVisualStyleBackColor = true;
+            this.btnMoi.Click += new System.EventHandler(this.btnMoi_Click);
+            // 
             // frmHHK
             // 
             this.AcceptButton = this.btnThem;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 401);
+            this.Controls.Add(this.btnMoi);
             this.Controls.Add(this.dgvHHK);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnCapNhat);
@@ -157,7 +169,7 @@
             this.Controls.Add(this.txtTenHHK);
             this.Controls.Add(this.txtMaHHK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmHHK";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -181,5 +193,6 @@
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.DataGridView dgvHHK;
+        private System.Windows.Forms.Button btnMoi;
     }
 }
