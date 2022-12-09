@@ -7,6 +7,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BUS_QLSanBay;
+using ET_QLSanBay;
 
 namespace QLSanBay
 {
@@ -16,100 +18,42 @@ namespace QLSanBay
         {
             InitializeComponent();
         }
-
+        BUS_PHONBAN busPB = new BUS_PHONBAN();
+        BUS_HHK busHHK = new BUS_HHK();
+        ET_PHONGBAN etPB = new ET_PHONGBAN();
         private void frmPhongBan_Load(object sender, EventArgs e)
         {
-            loadCombobox();
-            loadDataGridView();                       
+            loadComboboxTenHHK();
+            loadData();
+            txtMaPhong.ReadOnly = true;
+            btnThem.Enabled = false;
+
         }
-        // tạo connect
-        SqlConnection con = new SqlConnection("Data Source =.; Initial Catalog = QLSANBAY; Integrated Security = True");
-        void loadDataGridView()
+        void loadData()
         {
-            try
-            {                 
-                // mở kết nối
-                con.Open();
-                #region loadData cho gridview
-                // khai báo command
-                SqlCommand cmdPB = new SqlCommand();
-                cmdPB.CommandText = "sp_layDSPhongBan";
-                cmdPB.CommandType = CommandType.StoredProcedure;
-                // gán kết nối
-                cmdPB.Connection = con;
-                // tạo đối tượng dataAdapter
-                SqlDataAdapter da = new SqlDataAdapter(cmdPB);
-                DataTable dtPB = new DataTable();
-                // fill data 
-                da.Fill(dtPB);
-                // gán dữ liệu cho bảng
-                dgvPhongBan.DataSource = dtPB;
-                // đóng kết nối
-                #endregion                
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show($"Lỗi kết nối: {e.Message}");
-            }
+            dgvPhongBan.DataSource = busPB.layDSPB();
         }
-        void loadCombobox()
+        void loadComboboxTenHHK()
         {
-            try
-            {
-                con.Open();
-                #region cboHHK
-                SqlCommand cmdDSHHK = new SqlCommand("sp_layDSHANGHANGKHONG",con);
-                cmdDSHHK.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter da = new SqlDataAdapter(cmdDSHHK);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                cboMaHHK.Items.Clear();
-                cboMaHHK.DisplayMember = "TENHANGHK";
-                cboMaHHK.ValueMember = "MAHANGHK";
-                cboMaHHK.DataSource = ds.Tables[0];
-                #endregion
-                #region cboNhanVien
-                SqlCommand cmdDSNhanVien = new SqlCommand("sp_layDSNV", con);
-                cmdDSNhanVien.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter da1 = new SqlDataAdapter(cmdDSNhanVien);
-                DataSet ds1 = new DataSet();
-                da1.Fill(ds1);
-                cboTrgPhong.Items.Clear();
-                cboTrgPhong.DisplayMember = "TENNV";
-                cboTrgPhong.ValueMember = "MANV";
-                cboTrgPhong.DataSource = ds1.Tables[0];
-                #endregion
-                con.Close();
-            }
-            catch(Exception e)
-            {
-                con.Close();
-                MessageBox.Show("Loi"+e.Message);
-            }
+            cboMaHHK.DataSource = busHHK.layDSHHK();
+            cboMaHHK.ValueMember = "MAHANGHK";
+            cboMaHHK.DisplayMember = "TENHANGHK";          
+        }
+        void loadComboboxTRPHG()
+        {
+            etPB.MaHHK = cboMaHHK.Text;
+            etPB.MaPhong = txtMaPhong.Text;
+            cboTrgPhong.DataSource = busPB.layDSNV(etPB);
+            cboTrgPhong.ValueMember = "MANV";
+            cboTrgPhong.DisplayMember = "CONCAT(HONV,' ',TENNV)";
         }
 
 
         private void dgvPhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtMaPhong.Text = dgvPhongBan.CurrentRow.Cells[0].Value.ToString();
-            txtTenPhong.Text = dgvPhongBan.CurrentRow.Cells[1].Value.ToString();
-            foreach (object item in cboMaHHK.Items)
-            {
-                if (item.ToString().Equals(dgvPhongBan.CurrentRow.Cells[3].Value.ToString())==true)
-                {
-                    cboMaHHK.SelectedItem = item;
-                }
-            }
-            //for (int i = 0; i < cboMaHHK.Items.Count; i++)
-            //{
-            //    if (cboMaHHK.Items[i].ToString().Equals(dgvPhongBan.CurrentRow.Cells[3].Value.ToString()))
-            //    {
-            //        cboMaHHK.SelectedIndex = i;
-            //    }
-            //}
-            cboTrgPhong.SelectedText= dgvPhongBan.CurrentRow.Cells[2].Value.ToString();
-
+            txtTenPhong.Text = dgvPhongBan.CurrentRow.Cells[2].Value.ToString();
+            cboMaHHK.Text = busHHK.layTenHHK(dgvPhongBan.CurrentRow.Cells[1].Value.ToString());
         }
 
         private void txtMaPhong_KeyPress(object sender, KeyPressEventArgs e)
@@ -148,129 +92,63 @@ namespace QLSanBay
                 txtMaPhong.Focus();
                 return;
             }
-            int kq = 0;
-            try
+            etPB.MaPhong = txtMaPhong.Text;
+            etPB.MaHHK = cboMaHHK.Text;
+            etPB.TenPhong = txtTenPhong.Text;
+            etPB.TrgPhong = null;
+            int kq = busPB.themPB(etPB);
+            if (kq > 0)
             {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                SqlCommand cmdHHK = new SqlCommand("sp_themPHONGBAN", con);
-                cmdHHK.CommandType = CommandType.StoredProcedure;
-                cmdHHK.Parameters.AddWithValue("@MAPHONG", txtMaPhong.Text);
-                cmdHHK.Parameters.AddWithValue("@TENPHG", txtTenPhong.Text);
-                cmdHHK.Parameters.AddWithValue("@MAHANGHK",cboMaHHK.SelectedValue);
-                cmdHHK.Parameters.AddWithValue("@TRPHG", " ");
-                kq = cmdHHK.ExecuteNonQuery();
-                // đóng kết nối
-                con.Close();
+                MessageBox.Show("Thêm thành công. ", "Thông báo");
+                loadData();
             }
-            catch (Exception ex)
+            else
             {
-                con.Close();
-                MessageBox.Show($"Lỗi dữ liệu: Mã Phòng ban đã tồn tại", "Thông báo");
+                MessageBox.Show("Thêm không thành công. ", "Thông báo");
             }
-            finally
-            {
-                if (kq > 0)
-                {
-                    MessageBox.Show("Thêm thành công", "Thông báo");
-                    loadDataGridView();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm không thành công", "Thông báo");
-                }
-                txtMaPhong.Clear();
-                txtTenPhong.Clear();
-                txtMaPhong.Focus();
-            }
+            txtMaPhong.Clear();
+            txtTenPhong.Clear();
+            txtMaPhong.ReadOnly = true;
+            btnThem.Enabled = false;
+            btnCapNhat.Enabled = true;
+            btnXoa.Enabled = true;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            int kq = -1;
-            try
+            if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                SqlCommand cmdPB = new SqlCommand("sp_xoaPHONGBAN", con);
-                cmdPB.CommandType = CommandType.StoredProcedure;
-                cmdPB.Parameters.AddWithValue("@MAPHONG", txtMaPhong.Text);
-                if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    kq = cmdPB.ExecuteNonQuery();
-                }
-                else
-                {
-                    kq = -2;
-                }
-                con.Close();
-                // đóng kết nối
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi kết nối: {ex.Message}");
-            }
-            finally
-            {
+                etPB.MaPhong = txtMaPhong.Text;
+                int kq = busPB.xoaPB(etPB);
                 if (kq > 0)
                 {
-                    MessageBox.Show("Xóa thành công", "Thông báo");
-                    // load lại dữ liệu
-                    loadDataGridView();
-                }
-                else if (kq == -2)
-                {
+                    MessageBox.Show("Xóa thành công. ", "Thông báo");
+                    loadData();
                 }
                 else
                 {
-                    MessageBox.Show("Xóa không thành công", "Thông báo");
+                    MessageBox.Show("Xóa không thành công. ", "Thông báo");
                 }
-                txtMaPhong.Clear();
-                txtTenPhong.Clear();
             }
 
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            int kq = -1;
-            try
+            etPB.MaHHK = cboMaHHK.Text;
+            etPB.TenPhong = txtTenPhong.Text;
+            etPB.TrgPhong = cboTrgPhong.Text;
+            int kq = busPB.capNhatPB(etPB);
+            if (kq > 0)
             {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                SqlCommand cmdPB = new SqlCommand("sp_suaPHONGBAN", con);
-                cmdPB.CommandType = CommandType.StoredProcedure;
-                cmdPB.Parameters.AddWithValue("@MAPHONG", txtMaPhong.Text);
-                cmdPB.Parameters.AddWithValue("@TENPHG", txtTenPhong.Text);
-                cmdPB.Parameters.AddWithValue("@MAHANGHK",cboMaHHK.SelectedValue);
-                cmdPB.Parameters.AddWithValue("@TRGPHG", cboTrgPhong.SelectedValue);
-                kq = cmdPB.ExecuteNonQuery();
-                // đóng kết nối
-                con.Close();
+                MessageBox.Show("Cập nhật thành công. ", "Thông báo");
+                loadData();
             }
-            catch (Exception ex)
+            else
             {
-                con.Close();
-                MessageBox.Show($"Lỗi kết nối: {ex.Message}!");
+                MessageBox.Show("Cập nhật không thành công. ", "Thông báo");
             }
-            finally
-            {
-                if (kq > 0)
-                {
-                    MessageBox.Show("Cập nhật thành công", "Thông báo");
-                    loadDataGridView();
-                }
-                else
-                {
-                    MessageBox.Show("Cập nhật không thành công do 'Mã phòng ban' không bị thay đổi hoặc 'Tên phòng ban' không không hợp lệ", "Thông báo");
-                }
-                txtMaPhong.Clear();
-                txtTenPhong.Clear();
-                txtMaPhong.Focus();
-            }
+
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -284,6 +162,17 @@ namespace QLSanBay
             {
                 e.Cancel = true;
             }
+        }
+
+        private void btnMoi_Click(object sender, EventArgs e)
+        {
+            txtMaPhong.Clear();
+            txtTenPhong.Clear();
+            txtMaPhong.Focus();
+            txtMaPhong.ReadOnly = false;
+            btnThem.Enabled = true;
+            btnCapNhat.Enabled = false;
+            btnXoa.Enabled = false;
         }
     }
 }

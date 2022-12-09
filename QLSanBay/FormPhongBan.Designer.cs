@@ -41,7 +41,10 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.cboTrgPhong = new System.Windows.Forms.ComboBox();
+            this.btnMoi = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhongBan)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -137,7 +140,7 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(598, 54);
+            this.btnCapNhat.Location = new System.Drawing.Point(483, 26);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(100, 28);
@@ -148,7 +151,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(472, 54);
+            this.btnThem.Location = new System.Drawing.Point(11, 43);
             this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(100, 28);
@@ -159,7 +162,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(598, 110);
+            this.btnThoat.Location = new System.Drawing.Point(483, 79);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(100, 28);
@@ -170,7 +173,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(472, 110);
+            this.btnXoa.Location = new System.Drawing.Point(483, 129);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(100, 28);
@@ -189,14 +192,33 @@
             this.cboTrgPhong.Size = new System.Drawing.Size(205, 24);
             this.cboTrgPhong.TabIndex = 2;
             // 
+            // btnMoi
+            // 
+            this.btnMoi.Location = new System.Drawing.Point(11, 6);
+            this.btnMoi.Name = "btnMoi";
+            this.btnMoi.Size = new System.Drawing.Size(100, 30);
+            this.btnMoi.TabIndex = 5;
+            this.btnMoi.Text = "Mới";
+            this.btnMoi.UseVisualStyleBackColor = true;
+            this.btnMoi.Click += new System.EventHandler(this.btnMoi_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnMoi);
+            this.panel1.Controls.Add(this.btnThem);
+            this.panel1.Location = new System.Drawing.Point(598, 57);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(121, 82);
+            this.panel1.TabIndex = 6;
+            // 
             // frmPhongBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 394);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThoat);
-            this.Controls.Add(this.btnThem);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.dgvPhongBan);
             this.Controls.Add(this.cboTrgPhong);
@@ -216,6 +238,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPhongBan_FormClosing);
             this.Load += new System.EventHandler(this.frmPhongBan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhongBan)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,5 +259,7 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.ComboBox cboTrgPhong;
+        private System.Windows.Forms.Button btnMoi;
+        private System.Windows.Forms.Panel panel1;
     }
 }

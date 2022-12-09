@@ -49,14 +49,17 @@ namespace QLSanBay
             {
                 MessageBox.Show("Thêm thành công.","Thông báo");
                 loadData();
-                btnThem.Enabled = false;
-                txtMaHHK.ReadOnly = true;
             }
             else
             {
                 MessageBox.Show("Thêm không thành công.", "Thông báo");
             }
-            
+            txtMaHHK.Clear();
+            txtTenHHK.Clear();
+            btnThem.Enabled = false;
+            txtMaHHK.ReadOnly = true;
+            btnXoa.Enabled = true;
+            btnCapNhat.Enabled = true;
         }
 
         private void dgvHHK_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -71,8 +74,8 @@ namespace QLSanBay
         {
             if (MessageBox.Show("Bạn có muốn xóa không?","Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                int kq = busHHK.xoaHHK(etHHK);
                 etHHK.MaHHK = txtMaHHK.Text;
+                int kq = busHHK.xoaHHK(etHHK);
                 if (kq > 0)
                 {
                     MessageBox.Show("Xóa thành công.", "Thông báo");
@@ -82,18 +85,14 @@ namespace QLSanBay
                 {
                     MessageBox.Show("Xóa không thành công.", "Thông báo");
                 }
-            }
-            else
-            {
-                return;
-            }
+            }            
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            int kq = busHHK.capNhatHHK(etHHK);
             etHHK.MaHHK = txtMaHHK.Text;
             etHHK.TenHHK = txtTenHHK.Text;
+            int kq = busHHK.capNhatHHK(etHHK);
             if (kq > 0)
             {
                 MessageBox.Show("Cập nhật thành công.", "Thông báo");
@@ -154,6 +153,8 @@ namespace QLSanBay
             txtTenHHK.Clear();
             btnThem.Enabled = true;
             txtMaHHK.ReadOnly = false;
+            btnXoa.Enabled = false;
+            btnCapNhat.Enabled = false;
         }
     }
 }

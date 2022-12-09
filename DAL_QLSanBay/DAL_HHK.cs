@@ -44,6 +44,28 @@ namespace DAL_QLSanBay
             }
             return dtHHK;
         }
+        public string layTenHHK(string s)
+        {
+            string kq = " ";
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdHHK = new SqlCommand("sp_layTENHANGHANGKHONG_theoMAHANGHANGKHONG",con);
+                cmdHHK.CommandType = CommandType.StoredProcedure;
+                cmdHHK.Parameters.AddWithValue("@MAHANGHK", s);
+                kq = cmdHHK.ExecuteScalar().ToString();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return kq;
+        }
         public int themHHK(ET_HHK et)
         {
             try
@@ -52,7 +74,6 @@ namespace DAL_QLSanBay
                 con.Open();
                 // khai báo command
                 SqlCommand cmdHHK = new SqlCommand("sp_themHANGHANGKHONG", con);
-                cmdHHK.CommandText = "sp_themHANGHANGKHONG";
                 cmdHHK.CommandType = CommandType.StoredProcedure;
                 cmdHHK.Parameters.AddWithValue("@MAHANGHK", et.MaHHK);
                 cmdHHK.Parameters.AddWithValue("@TENHANGHK", et.TenHHK);
@@ -125,6 +146,7 @@ namespace DAL_QLSanBay
                 con.Close();
             }
         }
+
     }
 }
 
