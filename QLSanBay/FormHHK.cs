@@ -27,8 +27,6 @@ namespace QLSanBay
             btnThem.Enabled = false;
             txtMaHHK.ReadOnly = true;
         }
-        // tạo connect
-        SqlConnection con = new SqlConnection("Data Source =.; Initial Catalog = QLSANBAY; Integrated Security = True");
         public void loadData()
         {
             dgvHHK.DataSource = busHHK.layDSHHK();

@@ -16,90 +16,9 @@ namespace DAL_QLSanBay
         SqlDataAdapter daPB;
         DataTable dtPB;
 
-        public DataTable layDanhSachPB()
-        {
-            try
-            {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                cmdPB = new SqlCommand();
-                cmdPB.CommandText = "sp_layDSPHONGBAN";
-                cmdPB.CommandType = CommandType.StoredProcedure;
-                // gán kết nối
-                cmdPB.Connection = con;
-                // tạo đối tượng dataAdapter
-                daPB = new SqlDataAdapter(cmdPB);
-                dtPB = new DataTable();
-                // fill data 
-                daPB.Fill(dtPB);
-            }
-            catch (Exception)
-            {
-            }
-            finally
-            {
-                con.Close();
-            }
-            return dtPB;
-        }
         
-        public DataTable layDanhSachNV(ET_PHONGBAN et)
-        {
-            try
-            {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                cmdPB = new SqlCommand();
-                cmdPB.CommandText = "sp_layDSNV_theoPHONGBAN_theoHANGHANGKHONG";
-                cmdPB.CommandType = CommandType.StoredProcedure;
-                cmdPB.Parameters.AddWithValue("@MAHANGHK", et.MaHHK);
-                cmdPB.Parameters.AddWithValue("@MAPHG", et.MaPhong);
-                // gán kết nối
-                cmdPB.Connection = con;
-                // tạo đối tượng dataAdapter
-                daPB = new SqlDataAdapter(cmdPB);
-                dtPB = new DataTable();
-                // fill data 
-                daPB.Fill(dtPB);
-            }
-            catch (Exception)
-            {
-            }
-            finally
-            {
-                con.Close();
-            }
-            return dtPB;
-        }
         
-        public string layTenNV(string s)
-        {
-            string kq = "";
-            try
-            {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                cmdPB = new SqlCommand();
-                cmdPB.CommandText = "sp_layTENNHANVIEN_theoMANHANVIEN";
-                cmdPB.CommandType = CommandType.StoredProcedure;
-                cmdPB.Parameters.AddWithValue("@MANV", s);
-                // gán kết nối
-                cmdPB.Connection = con;
-
-                kq = cmdPB.ExecuteScalar().ToString();
-            }
-            catch (Exception)
-            {
-            }
-            finally
-            {
-                con.Close();
-            }
-            return kq;
-        }
+        
         public int themPB(ET_PHONGBAN et)
         {
             try
@@ -183,6 +102,53 @@ namespace DAL_QLSanBay
                 // đóng kết nối
                 con.Close();
             }
+        }
+        public DataTable layDanhSachPB_TheoHHK(ET_HHK et)
+        {
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdPB = new SqlCommand("sp_layDSPB_theoHHK", con);
+                cmdPB.CommandType = CommandType.StoredProcedure;
+                cmdPB.Parameters.AddWithValue("@MAHANGHK", et.MaHHK);
+                // tạo đối tượng dataAdapter
+                daPB = new SqlDataAdapter(cmdPB);
+                dtPB = new DataTable();
+                // fill data 
+                daPB.Fill(dtPB);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dtPB;
+        }
+        public string layTenPhongBan_TheoMaPhong(string s)
+        {
+            string kq = "";
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdPB = new SqlCommand("sp_layTENPHONGBAN_THEOMAPHONG", con);
+                cmdPB.CommandType = CommandType.StoredProcedure;
+                cmdPB.Parameters.AddWithValue("@MAPHG", s);
+                kq = cmdPB.ExecuteScalar().ToString();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return kq;
         }
     }
 }

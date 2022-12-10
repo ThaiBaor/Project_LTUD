@@ -11,18 +11,14 @@ namespace BUS_QLSanBay
     public class BUS_PHONBAN
     {
         DAL_PHONGBAN dalPB = new DAL_PHONGBAN();
-        public DataTable layDSPB()
-        {
-            return dalPB.layDanhSachPB();
-        }
-        public DataTable layDSNV(ET_PHONGBAN et)
-        {
-            return dalPB.layDanhSachNV(et);
-        }       
         
-        public string layTenNV(string s)
+        public DataTable layDSPB_TheoHHK(ET_HHK et)
         {
-            return dalPB.layTenNV(s);
+            return dalPB.layDanhSachPB_TheoHHK(et);
+        }
+        public string layTenPhongBan_TheoMaPhong(string s)
+        {
+            return dalPB.layTenPhongBan_TheoMaPhong(s);
         }
         public int themPB(ET_PHONGBAN et)
         {

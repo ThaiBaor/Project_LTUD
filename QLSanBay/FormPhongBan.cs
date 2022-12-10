@@ -21,6 +21,7 @@ namespace QLSanBay
         BUS_PHONBAN busPB = new BUS_PHONBAN();
         BUS_HHK busHHK = new BUS_HHK();
         ET_PHONGBAN etPB = new ET_PHONGBAN();
+        BUS_NV busNV = new BUS_NV();
         private void frmPhongBan_Load(object sender, EventArgs e)
         {
             loadComboboxTenHHK();
@@ -31,7 +32,7 @@ namespace QLSanBay
         }
         void loadData()
         {
-            dgvPhongBan.DataSource = busPB.layDSPB();
+            dgvPhongBan.DataSource = busNV.layDSPB();
         }
         void loadComboboxTenHHK()
         {
@@ -43,11 +44,11 @@ namespace QLSanBay
         {
             etPB.MaHHK = cboMaHHK.Text;
             etPB.MaPhong = txtMaPhong.Text;
-            cboTrgPhong.DataSource = busPB.layDSNV(etPB);
+            cboTrgPhong.DataSource = busNV.layDSNV(etPB);
             cboTrgPhong.ValueMember = "MANV";
             cboTrgPhong.DisplayMember = "CONCAT(HONV,' ',TENNV)";
         }
-
+        
 
         private void dgvPhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {

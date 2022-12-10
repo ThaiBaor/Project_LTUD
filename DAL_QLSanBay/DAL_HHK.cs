@@ -66,6 +66,28 @@ namespace DAL_QLSanBay
             }
             return kq;
         }
+        public string layTenHHK_TheoMaPhong(string s)
+        {
+            string kq = " ";
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdHHK = new SqlCommand("sp_layTENHHK_THEOMAPHONG", con);
+                cmdHHK.CommandType = CommandType.StoredProcedure;
+                cmdHHK.Parameters.AddWithValue("@MAPHG", s);
+                kq = cmdHHK.ExecuteScalar().ToString();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return kq;
+        }
         public int themHHK(ET_HHK et)
         {
             try
