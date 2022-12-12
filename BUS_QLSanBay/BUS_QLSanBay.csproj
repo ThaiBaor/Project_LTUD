@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS_HHK.cs" />
+    <Compile Include="BUS_LOAIVE.cs" />
+    <Compile Include="BUS_MAYBAY.cs" />
     <Compile Include="BUS_NV.cs" />
     <Compile Include="BUS_PHONBAN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

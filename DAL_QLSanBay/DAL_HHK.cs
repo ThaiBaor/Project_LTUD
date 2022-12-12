@@ -95,7 +95,7 @@ namespace DAL_QLSanBay
                 // mở kết nối
                 con.Open();
                 // khai báo command
-                SqlCommand cmdHHK = new SqlCommand("sp_themHANGHANGKHONG", con);
+                cmdHHK = new SqlCommand("sp_themHANGHANGKHONG", con);
                 cmdHHK.CommandType = CommandType.StoredProcedure;
                 cmdHHK.Parameters.AddWithValue("@MAHANGHK", et.MaHHK);
                 cmdHHK.Parameters.AddWithValue("@TENHANGHK", et.TenHHK);
@@ -122,7 +122,7 @@ namespace DAL_QLSanBay
                 // mở kết nối
                 con.Open();
                 // khai báo command
-                SqlCommand cmdHHK = new SqlCommand("sp_xoaHangHangKhong", con);
+                cmdHHK = new SqlCommand("sp_xoaHangHangKhong", con);
                 cmdHHK.CommandType = CommandType.StoredProcedure;
                 cmdHHK.Parameters.AddWithValue("@MAHANGHK", et.MaHHK);
                 if (cmdHHK.ExecuteNonQuery() > 0)
@@ -148,7 +148,7 @@ namespace DAL_QLSanBay
                 // mở kết nối
                 con.Open();
                 // khai báo command
-                SqlCommand cmdHHK = new SqlCommand("sp_suaHANGHANGKHONG", con);
+                cmdHHK = new SqlCommand("sp_suaHANGHANGKHONG", con);
                 cmdHHK.CommandType = CommandType.StoredProcedure;
                 cmdHHK.Parameters.AddWithValue("@TENHANGHK", et.TenHHK);
                 cmdHHK.Parameters.AddWithValue("@MAHANGHK", et.MaHHK);

@@ -88,18 +88,22 @@ namespace QLSanBay
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            etHHK.MaHHK = txtMaHHK.Text;
-            etHHK.TenHHK = txtTenHHK.Text;
-            int kq = busHHK.capNhatHHK(etHHK);
-            if (kq > 0)
+            if (MessageBox.Show("Bạn có muốn cập nhật không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                MessageBox.Show("Cập nhật thành công.", "Thông báo");
-                loadData();
+                etHHK.MaHHK = txtMaHHK.Text;
+                etHHK.TenHHK = txtTenHHK.Text;
+                int kq = busHHK.capNhatHHK(etHHK);
+                if (kq > 0)
+                {
+                    MessageBox.Show("Cập nhật thành công.", "Thông báo");
+                    loadData();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật không thành công.", "Thông báo");
+                }
             }
-            else
-            {
-                MessageBox.Show("Cập nhật không thành công.", "Thông báo");
-            }
+            
         }
 
         private void txtMaHHK_KeyPress(object sender, KeyPressEventArgs e)

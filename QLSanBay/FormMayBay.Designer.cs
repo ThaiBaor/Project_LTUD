@@ -29,43 +29,53 @@ namespace QLSanBay
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtSoHieu = new System.Windows.Forms.TextBox();
+            this.cboHHK = new System.Windows.Forms.ComboBox();
+            this.dgvMayBay = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnCapNhat = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnMoi = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMayBay)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtSoHieu
             // 
-            this.textBox1.Location = new System.Drawing.Point(212, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 22);
-            this.textBox1.TabIndex = 0;
+            this.txtSoHieu.Location = new System.Drawing.Point(212, 38);
+            this.txtSoHieu.Name = "txtSoHieu";
+            this.txtSoHieu.Size = new System.Drawing.Size(161, 22);
+            this.txtSoHieu.TabIndex = 0;
+            this.txtSoHieu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoHieu_KeyPress);
             // 
-            // comboBox1
+            // cboHHK
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(212, 79);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(161, 24);
-            this.comboBox1.TabIndex = 1;
+            this.cboHHK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboHHK.FormattingEnabled = true;
+            this.cboHHK.Location = new System.Drawing.Point(212, 79);
+            this.cboHHK.Name = "cboHHK";
+            this.cboHHK.Size = new System.Drawing.Size(161, 24);
+            this.cboHHK.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgvMayBay
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 218);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(479, 121);
-            this.dataGridView1.TabIndex = 2;
+            this.dgvMayBay.AllowUserToAddRows = false;
+            this.dgvMayBay.AllowUserToDeleteRows = false;
+            this.dgvMayBay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMayBay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMayBay.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvMayBay.Location = new System.Drawing.Point(0, 218);
+            this.dgvMayBay.MultiSelect = false;
+            this.dgvMayBay.Name = "dgvMayBay";
+            this.dgvMayBay.ReadOnly = true;
+            this.dgvMayBay.RowHeadersWidth = 51;
+            this.dgvMayBay.RowTemplate.Height = 24;
+            this.dgvMayBay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMayBay.Size = new System.Drawing.Size(479, 121);
+            this.dgvMayBay.TabIndex = 2;
+            this.dgvMayBay.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMayBay_CellClick);
             // 
             // label1
             // 
@@ -85,62 +95,79 @@ namespace QLSanBay
             this.label2.TabIndex = 3;
             this.label2.Text = "Hãng Hàng Không";
             // 
-            // button4
+            // btnCapNhat
             // 
-            this.button4.Location = new System.Drawing.Point(263, 148);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(85, 34);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Cập Nhật";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Location = new System.Drawing.Point(291, 148);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(85, 34);
+            this.btnCapNhat.TabIndex = 10;
+            this.btnCapNhat.Text = "Cập Nhật";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
-            // button2
+            // btnThem
             // 
-            this.button2.Location = new System.Drawing.Point(22, 148);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 34);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Thêm";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnThem.Location = new System.Drawing.Point(24, 167);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(85, 34);
+            this.btnThem.TabIndex = 11;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // button3
+            // btnThoat
             // 
-            this.button3.Location = new System.Drawing.Point(382, 148);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(85, 34);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Thoát";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnThoat.Location = new System.Drawing.Point(382, 148);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(85, 34);
+            this.btnThoat.TabIndex = 12;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // button1
+            // btnXoa
             // 
-            this.button1.Location = new System.Drawing.Point(138, 148);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 34);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Xóa";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnXoa.Location = new System.Drawing.Point(190, 148);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(85, 34);
+            this.btnXoa.TabIndex = 13;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnMoi
+            // 
+            this.btnMoi.Location = new System.Drawing.Point(24, 128);
+            this.btnMoi.Name = "btnMoi";
+            this.btnMoi.Size = new System.Drawing.Size(85, 33);
+            this.btnMoi.TabIndex = 14;
+            this.btnMoi.Text = "Mới";
+            this.btnMoi.UseVisualStyleBackColor = true;
+            this.btnMoi.Click += new System.EventHandler(this.btnMoi_Click);
             // 
             // frmMayBay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(479, 339);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnMoi);
+            this.Controls.Add(this.btnCapNhat);
+            this.Controls.Add(this.btnThem);
+            this.Controls.Add(this.btnThoat);
+            this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dgvMayBay);
+            this.Controls.Add(this.cboHHK);
+            this.Controls.Add(this.txtSoHieu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmMayBay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Máy Bay";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMayBay_FormClosing);
+            this.Load += new System.EventHandler(this.frmMayBay_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMayBay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,14 +175,15 @@ namespace QLSanBay
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtSoHieu;
+        private System.Windows.Forms.ComboBox cboHHK;
+        private System.Windows.Forms.DataGridView dgvMayBay;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnMoi;
     }
 }

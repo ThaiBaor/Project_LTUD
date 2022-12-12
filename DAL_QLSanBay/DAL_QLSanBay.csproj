@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL_HHK.cs" />
+    <Compile Include="DAL_LOAIVE.cs" />
+    <Compile Include="DAL_MAYBAY.cs" />
     <Compile Include="DAL_NV.cs" />
     <Compile Include="DAL_PHONGBAN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BUS_QLSanBay;
+using ET_QLSanBay;
 
 namespace QLSanBay
 {
@@ -16,39 +16,17 @@ namespace QLSanBay
         {
             InitializeComponent();
         }
-
+        BUS_LOAIVE busLV = new BUS_LOAIVE();
+        ET_LOAIVE etLV = new ET_LOAIVE();
         private void frmLoaiVe_Load(object sender, EventArgs e)
         {
             loadData();
+            btnThem.Enabled = false;
+            txtMaLoaiVe.ReadOnly = true;
         }
-        // tạo connect
-        SqlConnection con = new SqlConnection("Data Source =.; Initial Catalog = QLSANBAY; Integrated Security = True");
         public void loadData()
         {
-            try
-            {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                SqlCommand cmdLV = new SqlCommand();
-                cmdLV.CommandText = "sp_layDSLOAIVE";
-                cmdLV.CommandType = CommandType.StoredProcedure;
-                // gán kết nối
-                cmdLV.Connection = con;
-                // tạo đối tượng dataAdapter
-                SqlDataAdapter da = new SqlDataAdapter(cmdLV);
-                DataTable dtLV = new DataTable();
-                // fill data 
-                da.Fill(dtLV);
-                // gán dữ liệu cho bảng
-                dgvLoaiVe.DataSource = dtLV;
-                // đóng kết nối
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show($"Lỗi kết nối: {e.Message}");
-            }
+            dgvLoaiVe.DataSource = busLV.layDSLoaiVe();
         }
 
         private void txtMaLoaiVe_KeyPress(object sender, KeyPressEventArgs e)
@@ -87,84 +65,41 @@ namespace QLSanBay
                 txtMaLoaiVe.Focus();
                 return;
             }
-            int kq = 0;
-            try
+            etLV.MaLoai = txtMaLoaiVe.Text;
+            etLV.TenLoai = txtTenLoaiVe.Text;
+            int kq = busLV.themLoaiVe(etLV);
+            if (kq > 0)
             {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                SqlCommand cmdLV = new SqlCommand("sp_themLOAIVE", con);
-                cmdLV.CommandType = CommandType.StoredProcedure;
-                cmdLV.Parameters.AddWithValue("@MALOAIVE", txtMaLoaiVe.Text);
-                cmdLV.Parameters.AddWithValue("@TENLOAIVE", txtTenLoaiVe.Text);
-                kq = cmdLV.ExecuteNonQuery();
-                // đóng kết nối
-                con.Close();
+                MessageBox.Show("Thêm thành công.", "Thông báo");
+                loadData();
             }
-            catch (Exception ex)
+            else
             {
-                con.Close();
-                MessageBox.Show($"Lỗi dữ liệu: 'Mã loại vé' đã tồn tại!", "Thông báo");
+                MessageBox.Show("Thêm không thành công.", "Thông báo");
             }
-            finally
-            {
-                if (kq > 0)
-                {
-                    MessageBox.Show("Thêm thành công", "Thông báo");
-                    loadData();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm không thành công", "Thông báo");
-                }
-                txtMaLoaiVe.Clear();
-                txtTenLoaiVe.Clear();
-                txtMaLoaiVe.Focus();
-            }
+            txtMaLoaiVe.Clear();
+            txtTenLoaiVe.Clear();
+            btnThem.Enabled = false;
+            txtMaLoaiVe.ReadOnly = true;
+            btnXoa.Enabled = true;
+            btnCapNhat.Enabled = true;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            int kq = -1;
-            try
+            if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                SqlCommand cmdLV = new SqlCommand("sp_xoaLOAIVE", con);
-                cmdLV.CommandType = CommandType.StoredProcedure;
-                cmdLV.Parameters.AddWithValue("@MALOAIVE", txtMaLoaiVe.Text);
-                if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    kq = cmdLV.ExecuteNonQuery();
-                }
-                else
-                {
-                    kq = -2;
-                }
-                con.Close();
-                // đóng kết nối
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi kết nối: {ex.Message}");
-            }
-            finally
-            {
+                etLV.MaLoai = txtMaLoaiVe.Text;
+                int kq = busLV.xoaLoaiVe(etLV);
                 if (kq > 0)
                 {
-                    MessageBox.Show("Xóa thành công", "Thông báo");
+                    MessageBox.Show("Xóa thành công.", "Thông báo");
                     loadData();
-                }
-                else if (kq == -2)
-                {
                 }
                 else
                 {
-                    MessageBox.Show("Xóa không thành công", "Thông báo");
+                    MessageBox.Show("Xóa không thành công.", "Thông báo");
                 }
-                txtMaLoaiVe.Clear();
-                txtTenLoaiVe.Clear();
             }
         }
 
@@ -176,40 +111,22 @@ namespace QLSanBay
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            int kq = -1;
-            try
+            if (MessageBox.Show("Bạn có muốn cập nhật không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                SqlCommand cmdHHK = new SqlCommand("sp_suaLOAIVE", con);
-                cmdHHK.CommandType = CommandType.StoredProcedure;
-                cmdHHK.Parameters.AddWithValue("@MAHANGHK", txtMaLoaiVe.Text);
-                cmdHHK.Parameters.AddWithValue("@TENHANGHK", txtTenLoaiVe.Text);
-                kq = cmdHHK.ExecuteNonQuery();
-                // đóng kết nối
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                con.Close();
-                MessageBox.Show($"Lỗi kết nối: {ex.Message}!");
-            }
-            finally
-            {
+                etLV.MaLoai = txtMaLoaiVe.Text;
+                etLV.TenLoai = txtTenLoaiVe.Text;
+                int kq = busLV.suaLoaiVe(etLV);
                 if (kq > 0)
                 {
-                    MessageBox.Show("Cập nhật thành công", "Thông báo");
+                    MessageBox.Show("Cập nhật thành công.", "Thông báo");
                     loadData();
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật không thành công do 'Mã loại vé' bị thay đổi hoặc 'Tên loại vé' không hợp lệ", "Thông báo");
+                    MessageBox.Show("Cập nhật không thành công.", "Thông báo");
                 }
-                txtMaLoaiVe.Clear();
-                txtTenLoaiVe.Clear();
-                txtMaLoaiVe.Focus();
             }
+
         }
 
         private void frmLoaiVe_FormClosing(object sender, FormClosingEventArgs e)
@@ -223,6 +140,17 @@ namespace QLSanBay
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnMoi_Click(object sender, EventArgs e)
+        {
+            btnThem.Enabled = true;
+            btnXoa.Enabled = false;
+            btnCapNhat.Enabled = false;
+            txtMaLoaiVe.ReadOnly = false;
+            txtMaLoaiVe.Clear();
+            txtTenLoaiVe.Clear();
+            txtMaLoaiVe.Focus();
         }
     }
 }

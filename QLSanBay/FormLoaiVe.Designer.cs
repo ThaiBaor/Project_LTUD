@@ -38,6 +38,7 @@ namespace QLSanBay
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.dgvLoaiVe = new System.Windows.Forms.DataGridView();
+            this.btnMoi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiVe)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +64,7 @@ namespace QLSanBay
             // 
             this.txtMaLoaiVe.Location = new System.Drawing.Point(126, 42);
             this.txtMaLoaiVe.Name = "txtMaLoaiVe";
-            this.txtMaLoaiVe.Size = new System.Drawing.Size(177, 22);
+            this.txtMaLoaiVe.Size = new System.Drawing.Size(196, 22);
             this.txtMaLoaiVe.TabIndex = 1;
             this.txtMaLoaiVe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaLoaiVe_KeyPress);
             // 
@@ -71,13 +72,13 @@ namespace QLSanBay
             // 
             this.txtTenLoaiVe.Location = new System.Drawing.Point(126, 92);
             this.txtTenLoaiVe.Name = "txtTenLoaiVe";
-            this.txtTenLoaiVe.Size = new System.Drawing.Size(177, 22);
+            this.txtTenLoaiVe.Size = new System.Drawing.Size(196, 22);
             this.txtTenLoaiVe.TabIndex = 1;
             this.txtTenLoaiVe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenLoaiVe_KeyPress);
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(356, 45);
+            this.btnThem.Location = new System.Drawing.Point(387, 70);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(86, 25);
             this.btnThem.TabIndex = 2;
@@ -87,7 +88,7 @@ namespace QLSanBay
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(356, 92);
+            this.btnXoa.Location = new System.Drawing.Point(497, 76);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(86, 25);
             this.btnXoa.TabIndex = 2;
@@ -97,7 +98,7 @@ namespace QLSanBay
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(456, 45);
+            this.btnCapNhat.Location = new System.Drawing.Point(497, 37);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(86, 25);
             this.btnCapNhat.TabIndex = 2;
@@ -107,7 +108,7 @@ namespace QLSanBay
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(456, 93);
+            this.btnThoat.Location = new System.Drawing.Point(497, 114);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(86, 25);
             this.btnThoat.TabIndex = 2;
@@ -129,19 +130,30 @@ namespace QLSanBay
             this.dgvLoaiVe.RowHeadersWidth = 51;
             this.dgvLoaiVe.RowTemplate.Height = 24;
             this.dgvLoaiVe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLoaiVe.Size = new System.Drawing.Size(590, 150);
+            this.dgvLoaiVe.Size = new System.Drawing.Size(606, 150);
             this.dgvLoaiVe.TabIndex = 3;
             this.dgvLoaiVe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoaiVe_CellClick);
+            // 
+            // btnMoi
+            // 
+            this.btnMoi.Location = new System.Drawing.Point(387, 39);
+            this.btnMoi.Name = "btnMoi";
+            this.btnMoi.Size = new System.Drawing.Size(86, 25);
+            this.btnMoi.TabIndex = 2;
+            this.btnMoi.Text = "Mới";
+            this.btnMoi.UseVisualStyleBackColor = true;
+            this.btnMoi.Click += new System.EventHandler(this.btnMoi_Click);
             // 
             // frmLoaiVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 304);
+            this.ClientSize = new System.Drawing.Size(606, 304);
             this.Controls.Add(this.dgvLoaiVe);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.btnXoa);
+            this.Controls.Add(this.btnMoi);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.txtTenLoaiVe);
             this.Controls.Add(this.txtMaLoaiVe);
@@ -171,5 +183,6 @@ namespace QLSanBay
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.DataGridView dgvLoaiVe;
+        private System.Windows.Forms.Button btnMoi;
     }
 }

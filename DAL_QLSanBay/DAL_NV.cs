@@ -153,21 +153,21 @@ namespace DAL_QLSanBay
                 // mở kết nối
                 con.Open();
                 // khai báo command
-                SqlCommand cmdHHK = new SqlCommand("sp_themNV", con);
-                cmdHHK.CommandType = CommandType.StoredProcedure;
-                cmdHHK.Parameters.AddWithValue("@MANV", et.MaNV);
-                cmdHHK.Parameters.AddWithValue("@MAPHG", et.MaPhong);
-                cmdHHK.Parameters.AddWithValue("@HONV", et.HoNV);
-                cmdHHK.Parameters.AddWithValue("@TENNV", et.TenNV);
-                cmdHHK.Parameters.AddWithValue("@NSINHNV", et.NgaySinh);
-                cmdHHK.Parameters.AddWithValue("@SDTNV", et.Sdt);
-                cmdHHK.Parameters.AddWithValue("@DIACHINV", et.DiaChi);
-                cmdHHK.Parameters.AddWithValue("@CCCD", et.CCCD);
-                cmdHHK.Parameters.AddWithValue("@MANGQL", et.MaNgQL);
-                cmdHHK.Parameters.AddWithValue("@PHANLOAI", et.PhanLoai);
-                cmdHHK.Parameters.AddWithValue("@PHAI", et.Phai);
-                cmdHHK.Parameters.AddWithValue("@LUONG", et.Luong);
-                if (cmdHHK.ExecuteNonQuery() > 0)
+                cmdNV = new SqlCommand("sp_themNV", con);
+                cmdNV.CommandType = CommandType.StoredProcedure;
+                cmdNV.Parameters.AddWithValue("@MANV", et.MaNV);
+                cmdNV.Parameters.AddWithValue("@MAPHG", et.MaPhong);
+                cmdNV.Parameters.AddWithValue("@HONV", et.HoNV);
+                cmdNV.Parameters.AddWithValue("@TENNV", et.TenNV);
+                cmdNV.Parameters.AddWithValue("@NSINHNV", et.NgaySinh);
+                cmdNV.Parameters.AddWithValue("@SDTNV", et.Sdt);
+                cmdNV.Parameters.AddWithValue("@DIACHINV", et.DiaChi);
+                cmdNV.Parameters.AddWithValue("@CCCD", et.CCCD);
+                cmdNV.Parameters.AddWithValue("@MANGQL", et.MaNgQL);
+                cmdNV.Parameters.AddWithValue("@PHANLOAI", et.PhanLoai);
+                cmdNV.Parameters.AddWithValue("@PHAI", et.Phai);
+                cmdNV.Parameters.AddWithValue("@LUONG", et.Luong);
+                if (cmdNV.ExecuteNonQuery() > 0)
                 {
                     return 1;
                 }
@@ -191,10 +191,10 @@ namespace DAL_QLSanBay
                 // mở kết nối
                 con.Open();
                 // khai báo command
-                SqlCommand cmdHHK = new SqlCommand("sp_xoaNV", con);
-                cmdHHK.CommandType = CommandType.StoredProcedure;
-                cmdHHK.Parameters.AddWithValue("@MANV", et.MaNV);
-                if (cmdHHK.ExecuteNonQuery() > 0)
+                cmdNV = new SqlCommand("sp_xoaNV", con);
+                cmdNV.CommandType = CommandType.StoredProcedure;
+                cmdNV.Parameters.AddWithValue("@MANV", et.MaNV);
+                if (cmdNV.ExecuteNonQuery() > 0)
                 {
                     return 1;
                 }
@@ -217,21 +217,22 @@ namespace DAL_QLSanBay
                 // mở kết nối
                 con.Open();
                 // khai báo command
-                SqlCommand cmdHHK = new SqlCommand("sp_suaNV", con);
-                cmdHHK.CommandType = CommandType.StoredProcedure;
-                cmdHHK.Parameters.AddWithValue("@MANV", et.MaNV);
-                cmdHHK.Parameters.AddWithValue("@MAPHG", et.MaPhong);
-                cmdHHK.Parameters.AddWithValue("@HONV", et.HoNV);
-                cmdHHK.Parameters.AddWithValue("@TENNV", et.TenNV);
-                cmdHHK.Parameters.AddWithValue("@NSINHNV", et.NgaySinh);
-                cmdHHK.Parameters.AddWithValue("@SDTNV", et.Sdt);
-                cmdHHK.Parameters.AddWithValue("@DIACHINV", et.DiaChi);
-                cmdHHK.Parameters.AddWithValue("@CCCD", et.CCCD);
-                cmdHHK.Parameters.AddWithValue("@MANGQL", et.MaNgQL);
-                cmdHHK.Parameters.AddWithValue("@PHANLOAI", et.PhanLoai);
-                cmdHHK.Parameters.AddWithValue("@PHAI", et.Phai);
-                cmdHHK.Parameters.AddWithValue("@LUONG", et.Luong);
-                if (cmdHHK.ExecuteNonQuery() > 0)
+                cmdNV = new SqlCommand("sp_suaNV", con);
+                cmdNV.CommandType = CommandType.StoredProcedure;
+                cmdNV.CommandType = CommandType.StoredProcedure;
+                cmdNV.Parameters.AddWithValue("@MANV", et.MaNV);
+                cmdNV.Parameters.AddWithValue("@MAPHG", et.MaPhong);
+                cmdNV.Parameters.AddWithValue("@HONV", et.HoNV);
+                cmdNV.Parameters.AddWithValue("@TENNV", et.TenNV);
+                cmdNV.Parameters.AddWithValue("@NSINHNV", et.NgaySinh);
+                cmdNV.Parameters.AddWithValue("@SDTNV", et.Sdt);
+                cmdNV.Parameters.AddWithValue("@DIACHINV", et.DiaChi);
+                cmdNV.Parameters.AddWithValue("@CCCD", et.CCCD);
+                cmdNV.Parameters.AddWithValue("@MANGQL", et.MaNgQL);
+                cmdNV.Parameters.AddWithValue("@PHANLOAI", et.PhanLoai);
+                cmdNV.Parameters.AddWithValue("@PHAI", et.Phai);
+                cmdNV.Parameters.AddWithValue("@LUONG", et.Luong);
+                if (cmdNV.ExecuteNonQuery() > 0)
                 {
                     return 1;
                 }
