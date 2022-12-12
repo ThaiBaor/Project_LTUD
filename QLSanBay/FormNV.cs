@@ -135,7 +135,7 @@ namespace QLSanBay
             else if (txtCCCD.TextLength > 12 && ch != (char)Keys.Back)
             {
                 e.Handled = true;
-            }
+            }            
         }
 
         private void txtPhanLoai_KeyPress(object sender, KeyPressEventArgs e)
@@ -234,24 +234,24 @@ namespace QLSanBay
             {
                 MessageBox.Show("Thêm thành công.", "Thông báo");
                 loadData();
+                txtMaNV.Clear();
+                txtTenNV.Clear();
+                txtHoNV.Clear();
+                txtPhanLoai.Clear();
+                txtSDT.Clear();
+                txtDiaChi.Clear();
+                txtCCCD.Clear();
+                txtLuong.Clear();
+                txtMaNV.Focus();
+                btnThem.Enabled = false;
+                txtMaNV.ReadOnly = true;
+                btnXoa.Enabled = true;
+                btnCapNhat.Enabled = true;
             }
             else
             {
-                MessageBox.Show("Thêm không thành công.", $"Thông báo {kq}");
+                MessageBox.Show("Thêm không thành công.", $"Thông báo");
             }
-            txtMaNV.Clear();
-            txtTenNV.Clear();
-            txtHoNV.Clear();
-            txtPhanLoai.Clear();
-            txtSDT.Clear();
-            txtDiaChi.Clear();
-            txtCCCD.Clear();
-            txtLuong.Clear();
-            txtMaNV.Focus();
-            btnThem.Enabled = false;
-            txtMaNV.ReadOnly = true;
-            btnXoa.Enabled = true;
-            btnCapNhat.Enabled = true;
         }
 
         private void dgvNV_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ET_CHUYENBAY.cs" />
     <Compile Include="ET_HHK.cs" />
+    <Compile Include="ET_HK.cs" />
     <Compile Include="ET_LOAIVE.cs" />
     <Compile Include="ET_MAYBAY.cs" />
     <Compile Include="ET_NV.cs" />

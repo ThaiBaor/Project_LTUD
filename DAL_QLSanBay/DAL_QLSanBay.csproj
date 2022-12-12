@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL_CHUYENBAY.cs" />
     <Compile Include="DAL_HHK.cs" />
+    <Compile Include="DAL_HK.cs" />
     <Compile Include="DAL_LOAIVE.cs" />
     <Compile Include="DAL_MAYBAY.cs" />
     <Compile Include="DAL_NV.cs" />
