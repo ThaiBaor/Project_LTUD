@@ -118,6 +118,7 @@
             this.cboMaHHK.Name = "cboMaHHK";
             this.cboMaHHK.Size = new System.Drawing.Size(205, 24);
             this.cboMaHHK.TabIndex = 2;
+            this.cboMaHHK.SelectionChangeCommitted += new System.EventHandler(this.cboMaHHK_SelectionChangeCommitted);
             // 
             // dgvPhongBan
             // 
@@ -140,7 +141,7 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(483, 26);
+            this.btnCapNhat.Location = new System.Drawing.Point(609, 35);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(100, 28);
@@ -162,7 +163,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(483, 79);
+            this.btnThoat.Location = new System.Drawing.Point(609, 129);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(100, 28);
@@ -173,7 +174,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(483, 129);
+            this.btnXoa.Location = new System.Drawing.Point(609, 82);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(100, 28);
@@ -206,7 +207,7 @@
             // 
             this.panel1.Controls.Add(this.btnMoi);
             this.panel1.Controls.Add(this.btnThem);
-            this.panel1.Location = new System.Drawing.Point(598, 57);
+            this.panel1.Location = new System.Drawing.Point(468, 56);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(121, 82);
             this.panel1.TabIndex = 6;

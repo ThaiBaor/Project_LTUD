@@ -15,11 +15,7 @@ namespace BUS_QLSanBay
         public DataTable layDSNV()
         {
             return dalNV.layDSNV();
-        }
-        public DataTable layDSPB()
-        {
-            return dalNV.layDanhSachPB();
-        }
+        }       
         public DataTable layDSNV(ET_PHONGBAN et)
         {
             return dalNV.layDanhSachNV(et);

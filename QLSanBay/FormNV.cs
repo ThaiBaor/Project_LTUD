@@ -256,6 +256,9 @@ namespace QLSanBay
 
         private void dgvNV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnCapNhat.Enabled = true;
+            btnXoa.Enabled = true;
+            btnThem.Enabled = false;
             txtMaNV.Text = dgvNV.CurrentRow.Cells[0].Value.ToString();
             txtHoNV.Text= dgvNV.CurrentRow.Cells[2].Value.ToString();
             txtTenNV.Text = dgvNV.CurrentRow.Cells[3].Value.ToString();

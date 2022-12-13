@@ -22,6 +22,7 @@ namespace QLSanBay
         BUS_HHK busHHK = new BUS_HHK();
         ET_PHONGBAN etPB = new ET_PHONGBAN();
         BUS_NV busNV = new BUS_NV();
+        ET_HHK etHHK = new ET_HHK();
         private void frmPhongBan_Load(object sender, EventArgs e)
         {
             loadComboboxTenHHK();
@@ -32,7 +33,7 @@ namespace QLSanBay
         }
         void loadData()
         {
-            dgvPhongBan.DataSource = busNV.layDSPB();
+            dgvPhongBan.DataSource = busPB.layDSPB();
         }
         void loadComboboxTenHHK()
         {
@@ -42,11 +43,10 @@ namespace QLSanBay
         }
         void loadComboboxTRPHG()
         {
-            etPB.MaHHK = cboMaHHK.Text;
-            etPB.MaPhong = txtMaPhong.Text;
-            cboTrgPhong.DataSource = busNV.layDSNV(etPB);
+            etHHK.MaHHK = cboMaHHK.SelectedValue.ToString();
+            cboTrgPhong.DataSource = busNV.layDSNgQL(etHHK);
             cboTrgPhong.ValueMember = "MANV";
-            cboTrgPhong.DisplayMember = "CONCAT(HONV,' ',TENNV)";
+            cboTrgPhong.DisplayMember = "HOTEN";
         }
         
 
@@ -55,6 +55,8 @@ namespace QLSanBay
             txtMaPhong.Text = dgvPhongBan.CurrentRow.Cells[0].Value.ToString();
             txtTenPhong.Text = dgvPhongBan.CurrentRow.Cells[2].Value.ToString();
             cboMaHHK.Text = busHHK.layTenHHK(dgvPhongBan.CurrentRow.Cells[1].Value.ToString());
+            loadComboboxTRPHG();
+            cboTrgPhong.Text = busNV.layTenNV(dgvPhongBan.CurrentRow.Cells[3].Value.ToString());
         }
 
         private void txtMaPhong_KeyPress(object sender, KeyPressEventArgs e)
@@ -94,9 +96,9 @@ namespace QLSanBay
                 return;
             }
             etPB.MaPhong = txtMaPhong.Text;
-            etPB.MaHHK = cboMaHHK.Text;
+            etPB.MaHHK = cboMaHHK.SelectedValue.ToString();
             etPB.TenPhong = txtTenPhong.Text;
-            etPB.TrgPhong = null;
+            etPB.TrgPhong = "null";
             int kq = busPB.themPB(etPB);
             if (kq > 0)
             {
@@ -136,20 +138,23 @@ namespace QLSanBay
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            etPB.MaHHK = cboMaHHK.Text;
-            etPB.TenPhong = txtTenPhong.Text;
-            etPB.TrgPhong = cboTrgPhong.Text;
-            int kq = busPB.capNhatPB(etPB);
-            if (kq > 0)
+            if (MessageBox.Show("Bạn có muốn cập nhật không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                MessageBox.Show("Cập nhật thành công. ", "Thông báo");
-                loadData();
-            }
-            else
-            {
-                MessageBox.Show("Cập nhật không thành công. ", "Thông báo");
-            }
-
+                etPB.MaPhong = txtMaPhong.Text;
+                etPB.MaHHK = cboMaHHK.SelectedValue.ToString();
+                etPB.TenPhong = txtTenPhong.Text;
+                etPB.TrgPhong = cboTrgPhong.SelectedValue.ToString();
+                int kq = busPB.capNhatPB(etPB);
+                if (kq > 0)
+                {
+                    MessageBox.Show("Cập nhật thành công. ", "Thông báo");
+                    loadData();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật không thành công. ", "Thông báo");
+                }
+            }    
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -174,6 +179,11 @@ namespace QLSanBay
             btnThem.Enabled = true;
             btnCapNhat.Enabled = false;
             btnXoa.Enabled = false;
+        }
+
+        private void cboMaHHK_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            loadComboboxTRPHG();
         }
     }
 }

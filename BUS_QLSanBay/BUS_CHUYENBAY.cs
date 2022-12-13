@@ -16,6 +16,22 @@ namespace BUS_QLSanBay
         {
             return dalCB.layDSChuyenBay();
         }
+        public DataTable layDSChuyenBayTheoHHK(ET_HHK et)
+        {
+            return dalCB.layDSChuyenBayTheoHHK(et);
+        }
+        public string laySBKH_TheoMaChuyenBay(string s)
+        {
+            return dalCB.layNoiKH_TheoMaChuyenBay(s);
+        }
+        public string laySBDen_TheoMaChuyenBay(string s)
+        {
+            return dalCB.layNoiDen_TheoMaChuyenBay(s);
+        }
+        public string laySBTC_TheoMaChuyenBay(string s)
+        {
+            return dalCB.layNoiTC_TheoMaChuyenBay(s);
+        }
         public int themChuyenBay(ET_CHUYENBAY et)
         {
             return dalCB.themChuyenBay(et);

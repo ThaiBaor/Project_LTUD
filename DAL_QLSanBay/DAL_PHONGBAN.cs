@@ -15,10 +15,32 @@ namespace DAL_QLSanBay
         SqlCommand cmdPB;
         SqlDataAdapter daPB;
         DataTable dtPB;
-
         
-        
-        
+        // tao method
+        public DataTable layDSPB()
+        {
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdPB = new SqlCommand("sp_layDSPHONGBAN", con);
+                cmdPB.CommandType = CommandType.StoredProcedure;
+                // tạo đối tượng dataAdapter
+                daPB = new SqlDataAdapter(cmdPB);
+                dtPB = new DataTable();
+                // fill data 
+                daPB.Fill(dtPB);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dtPB;
+        }
         public int themPB(ET_PHONGBAN et)
         {
             try

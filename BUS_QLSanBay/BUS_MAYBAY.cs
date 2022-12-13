@@ -16,6 +16,10 @@ namespace BUS_QLSanBay
         {
             return dalMB.layDanhSachMayBay();
         }
+        public DataTable layDSMayBay_TheoHHK(ET_HHK et)
+        {
+            return dalMB.layDanhSachMayBay_TheoHHK(et);
+        }
         public int themMayBay(ET_MAYBAY et)
         {
             return dalMB.themMayBay(et);
@@ -27,6 +31,10 @@ namespace BUS_QLSanBay
         public int suaMayBay(ET_MAYBAY et)
         {
             return dalMB.suaMayBay(et);
+        }
+        public string laySoHieuMayBay_TheoMaChuyenBay(string s)
+        {
+            return dalMB.laySoHieuMayBay_TheoMaChuyenBay(s);
         }
     }
 }

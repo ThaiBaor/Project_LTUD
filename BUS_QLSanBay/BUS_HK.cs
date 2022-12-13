@@ -16,6 +16,14 @@ namespace BUS_QLSanBay
         {
             return dalHK.layDSHK();
         }
+        public DataTable layDSTenHK()
+        {
+            return dalHK.layDSTenHK();
+        }
+        public string layTenHK_TheoMaHK(string s)
+        {
+            return dalHK.layTenHK_TheoMaHK(s);
+        }
         public int themHK(ET_HK et)
         {
             return dalHK.themHK(et);

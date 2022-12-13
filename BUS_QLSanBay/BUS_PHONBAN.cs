@@ -16,6 +16,10 @@ namespace BUS_QLSanBay
         {
             return dalPB.layDanhSachPB_TheoHHK(et);
         }
+        public DataTable layDSPB()
+        {
+            return dalPB.layDSPB();
+        }
         public string layTenPhongBan_TheoMaPhong(string s)
         {
             return dalPB.layTenPhongBan_TheoMaPhong(s);

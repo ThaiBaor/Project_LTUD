@@ -65,34 +65,7 @@ namespace DAL_QLSanBay
                 con.Close();
             }
             return dtNV;
-        }
-        public DataTable layDanhSachPB()
-        {
-            try
-            {
-                // mở kết nối
-                con.Open();
-                // khai báo command
-                cmdNV = new SqlCommand();
-                cmdNV.CommandText = "sp_layDSPHONGBAN";
-                cmdNV.CommandType = CommandType.StoredProcedure;
-                // gán kết nối
-                cmdNV.Connection = con;
-                // tạo đối tượng dataAdapter
-                daNV = new SqlDataAdapter(cmdNV);
-                dtNV = new DataTable();
-                // fill data 
-                daNV.Fill(dtNV);
-            }
-            catch (Exception)
-            {
-            }
-            finally
-            {
-                con.Close();
-            }
-            return dtNV;
-        }
+        }       
 
         public DataTable layDanhSachNV(ET_PHONGBAN et)
         {

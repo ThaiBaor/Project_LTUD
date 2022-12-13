@@ -41,6 +41,97 @@ namespace DAL_QLSanBay
             }
             return dtCB;
         }
+        public DataTable layDSChuyenBayTheoHHK(ET_HHK et)
+        {
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdCB = new SqlCommand("sp_layDSCHUYENBAY_theoMAHANGHANGKHONG", con);
+                cmdCB.CommandType = CommandType.StoredProcedure;
+                cmdCB.Parameters.AddWithValue("@MAHANGHK", et.MaHHK);
+                // tạo đối tượng dataAdapter
+                daCB = new SqlDataAdapter(cmdCB);
+                dtCB = new DataTable();
+                // fill data 
+                daCB.Fill(dtCB);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dtCB;
+        }
+        public string layNoiKH_TheoMaChuyenBay(string s)
+        {
+            string kq = " ";
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdCB = new SqlCommand("sp_laySBKHOIHANH_theoMACHUYENBAY", con);
+                cmdCB.CommandType = CommandType.StoredProcedure;
+                cmdCB.Parameters.AddWithValue("@MACHUYENBAY", s);
+                kq = cmdCB.ExecuteScalar().ToString();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return kq;
+        }
+        public string layNoiDen_TheoMaChuyenBay(string s)
+        {
+            string kq = " ";
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdCB = new SqlCommand("sp_laySBDEN_theoMACHUYENBAY", con);
+                cmdCB.CommandType = CommandType.StoredProcedure;
+                cmdCB.Parameters.AddWithValue("@MACHUYENBAY", s);
+                kq = cmdCB.ExecuteScalar().ToString();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return kq;
+        }
+        public string layNoiTC_TheoMaChuyenBay(string s)
+        {
+            string kq = " ";
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdCB = new SqlCommand("sp_laySBTC_theoMACHUYENBAY", con);
+                cmdCB.CommandType = CommandType.StoredProcedure;
+                cmdCB.Parameters.AddWithValue("@MACHUYENBAY", s);               
+                kq = cmdCB.ExecuteScalar().ToString();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return kq;
+        }
         public int themChuyenBay(ET_CHUYENBAY et)
         {
             try

@@ -88,6 +88,28 @@ namespace DAL_QLSanBay
             }
             return kq;
         }
+        public string layTenHHK_TheoMaChuyenBay(string s)
+        {
+            string kq = " ";
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdHHK = new SqlCommand("sp_layTENHANGHANGKHONG_theoMACHUYENBAY", con);
+                cmdHHK.CommandType = CommandType.StoredProcedure;
+                cmdHHK.Parameters.AddWithValue("@MACHUYENBAY", s);
+                kq = cmdHHK.ExecuteScalar().ToString();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return kq;
+        }
         public int themHHK(ET_HHK et)
         {
             try

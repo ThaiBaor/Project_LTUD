@@ -23,6 +23,10 @@ namespace BUS_QLSanBay
         {
             return dalHHK.layTenHHK_TheoMaPhong(s);
         }
+        public string layTenHHK_TheoMaChuyenBay(string s)
+        {
+            return dalHHK.layTenHHK_TheoMaChuyenBay(s);
+        }
         public int themHHK(ET_HHK et)
         {
             return dalHHK.themHHK(et);

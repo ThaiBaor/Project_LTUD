@@ -41,6 +41,52 @@ namespace DAL_QLSanBay
             }
             return dtHK;
         }
+        public DataTable layDSTenHK()
+        {
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdHK = new SqlCommand("sp_layDSTENHANHKHACH", con);
+                cmdHK.CommandType = CommandType.StoredProcedure;
+                // tạo đối tượng dataAdapter
+                daHK = new SqlDataAdapter(cmdHK);
+                dtHK = new DataTable();
+                // fill data 
+                daHK.Fill(dtHK);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dtHK;
+        }
+        public string layTenHK_TheoMaHK(string s)
+        {          
+                string kq = " ";
+                try
+                {
+                    // mở kết nối
+                    con.Open();
+                    // khai báo command
+                    cmdHK = new SqlCommand("sp_layTENHANHKHACH_theoMAHK", con);
+                    cmdHK.CommandType = CommandType.StoredProcedure;
+                    cmdHK.Parameters.AddWithValue("@MAHK", s);
+                    kq = cmdHK.ExecuteScalar().ToString();
+                }
+                catch (Exception)
+                {
+                }
+                finally
+                {
+                    con.Close();
+                }
+                return kq;            
+        }
         public int themHK(ET_HK et)
         {
             try

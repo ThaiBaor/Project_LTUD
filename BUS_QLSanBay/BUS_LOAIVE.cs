@@ -16,6 +16,10 @@ namespace BUS_QLSanBay
         {
             return dalLV.layDSLoaiVe();
         }
+        public string layTenLoaiVe(string s)
+        {
+            return dalLV.layTenLoaiVe(s);
+        }
         public int themLoaiVe(ET_LOAIVE et)
         {
             return dalLV.themLoaiVe(et);

@@ -41,6 +41,53 @@ namespace DAL_QLSanBay
             }
             return dtMB;
         }
+        public DataTable layDanhSachMayBay_TheoHHK(ET_HHK et)
+        {
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdMB = new SqlCommand("sp_layDSMAYBAY_theoHANGHANGKHONG", con);
+                cmdMB.CommandType = CommandType.StoredProcedure;
+                cmdMB.Parameters.AddWithValue("@MAHANGHK",et.MaHHK);
+                // tạo đối tượng dataAdapter
+                daMB = new SqlDataAdapter(cmdMB);
+                dtMB = new DataTable();
+                // fill data 
+                daMB.Fill(dtMB);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dtMB;
+        }
+        public string laySoHieuMayBay_TheoMaChuyenBay(string s)
+        {
+            string kq = " ";
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdMB = new SqlCommand("sp_laySOHIEUMAYBAY_theoMACHUYENBAY", con);
+                cmdMB.CommandType = CommandType.StoredProcedure;
+                cmdMB.Parameters.AddWithValue("@MACHUYENBAY", s);
+                kq = cmdMB.ExecuteScalar().ToString();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return kq;
+        }
         public int themMayBay(ET_MAYBAY et)
         {
             try

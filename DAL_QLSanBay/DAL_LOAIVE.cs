@@ -41,6 +41,28 @@ namespace DAL_QLSanBay
             }
             return dtLV;
         }
+        public string layTenLoaiVe(string s)
+        {
+            string kq = " ";
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdLV = new SqlCommand("sp_layTENLOAIVE", con);
+                cmdLV.CommandType = CommandType.StoredProcedure;
+                cmdLV.Parameters.AddWithValue("@MALOAIVE", s);
+                kq = cmdLV.ExecuteScalar().ToString();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return kq;
+        }
         public int themLoaiVe(ET_LOAIVE et)
         {
             try
