@@ -20,7 +20,10 @@ namespace BUS_QLSanBay
         {
             return dalNV.layDanhSachNV(et);
         }
-
+        public DataTable layDSTenNV_TheoHHK(ET_HHK et)
+        {
+            return dalNV.layDanhSachTenNV_TheoHHK(et);
+        }
         public string layTenNV(string s)
         {
             return dalNV.layTenNV(s);

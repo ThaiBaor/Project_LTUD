@@ -65,8 +65,8 @@
             this.mnuLichBay,
             this.mnuHanhKhach});
             this.mnuForm.Name = "mnuForm";
-            this.mnuForm.Size = new System.Drawing.Size(57, 24);
-            this.mnuForm.Text = "Form";
+            this.mnuForm.Size = new System.Drawing.Size(73, 24);
+            this.mnuForm.Text = "Quản lý";
             // 
             // mnuHHK
             // 
@@ -80,7 +80,7 @@
             // mnuMayBay
             // 
             this.mnuMayBay.Name = "mnuMayBay";
-            this.mnuMayBay.Size = new System.Drawing.Size(224, 26);
+            this.mnuMayBay.Size = new System.Drawing.Size(148, 26);
             this.mnuMayBay.Text = "Máy Bay";
             this.mnuMayBay.Click += new System.EventHandler(this.mnuMayBay_Click);
             // 
@@ -133,7 +133,7 @@
             // mnuChuyenBay
             // 
             this.mnuChuyenBay.Name = "mnuChuyenBay";
-            this.mnuChuyenBay.Size = new System.Drawing.Size(224, 26);
+            this.mnuChuyenBay.Size = new System.Drawing.Size(168, 26);
             this.mnuChuyenBay.Text = "Chuyến Bay";
             this.mnuChuyenBay.Click += new System.EventHandler(this.mnuChuyenBay_Click);
             // 

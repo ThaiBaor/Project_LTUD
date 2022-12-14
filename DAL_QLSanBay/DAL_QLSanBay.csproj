@@ -46,6 +46,7 @@
     <Compile Include="DAL_LOAIVE.cs" />
     <Compile Include="DAL_MAYBAY.cs" />
     <Compile Include="DAL_NV.cs" />
+    <Compile Include="DAL_PHANCONG.cs" />
     <Compile Include="DAL_PHONGBAN.cs" />
     <Compile Include="DAL_VEMAYBAY.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

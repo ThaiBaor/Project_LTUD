@@ -46,6 +46,7 @@
     <Compile Include="ET_LOAIVE.cs" />
     <Compile Include="ET_MAYBAY.cs" />
     <Compile Include="ET_NV.cs" />
+    <Compile Include="ET_PHANCONG.cs" />
     <Compile Include="ET_PHONGBAN.cs" />
     <Compile Include="ET_VEMAYBAY.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

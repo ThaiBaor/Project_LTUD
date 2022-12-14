@@ -24,11 +24,8 @@ namespace DAL_QLSanBay
                 // mở kết nối
                 con.Open();
                 // khai báo command
-                cmdHHK = new SqlCommand();
-                cmdHHK.CommandText = "sp_layDSHANGHANGKHONG";
+                cmdHHK = new SqlCommand("sp_layDSHANGHANGKHONG",con);
                 cmdHHK.CommandType = CommandType.StoredProcedure;
-                // gán kết nối
-                cmdHHK.Connection = con;
                 // tạo đối tượng dataAdapter
                 daHHK = new SqlDataAdapter(cmdHHK);
                 dtHHK = new DataTable();

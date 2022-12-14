@@ -146,7 +146,8 @@ namespace QLSanBay
             loadComboboxGioKH();
             cboGioKhoiHanh.Text= dgvVMB.CurrentRow.Cells[7].Value.ToString();
             loadComboboxNgayKH();
-            cboNgayKhoiHanh.Text= dgvVMB.CurrentRow.Cells[8].Value.ToString();
+            string[] s = dgvVMB.CurrentRow.Cells[8].Value.ToString().Split(' ');
+            cboNgayKhoiHanh.Text= s[0];
             loadlbl(dgvVMB.CurrentRow.Cells[0].Value.ToString());
         }
 

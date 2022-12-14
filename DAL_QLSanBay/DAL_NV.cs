@@ -96,6 +96,34 @@ namespace DAL_QLSanBay
             }
             return dtNV;
         }
+        public DataTable layDanhSachTenNV_TheoHHK(ET_HHK et)
+        {
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdNV = new SqlCommand();
+                cmdNV.CommandText = "sp_layDSTENNV_theoMAHANGHANGKHONG";
+                cmdNV.CommandType = CommandType.StoredProcedure;
+                cmdNV.Parameters.AddWithValue("@MAHANGHK", et.MaHHK);
+                // gán kết nối
+                cmdNV.Connection = con;
+                // tạo đối tượng dataAdapter
+                daNV = new SqlDataAdapter(cmdNV);
+                dtNV = new DataTable();
+                // fill data 
+                daNV.Fill(dtNV);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dtNV;
+        }
         public string layTenNV(string s)
         {
             string kq = "";
