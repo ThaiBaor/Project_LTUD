@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 namespace QLSanBay
 {
@@ -74,6 +76,12 @@ namespace QLSanBay
         {
             frmHanhKhach HKForm = new frmHanhKhach();
             HKForm.ShowDialog();
+        }
+
+        private void mnuBaoCao_VeMayBay_Click(object sender, EventArgs e)
+        {
+            frmReport_VMB ReportForm = new frmReport_VMB();
+            ReportForm.ShowDialog();
         }
     }
 }
