@@ -16,14 +16,14 @@ namespace QLSanBay {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Report_VEMAYBAY : ReportClass {
+    public class Report_DSVEMAYBAY : ReportClass {
         
-        public Report_VEMAYBAY() {
+        public Report_DSVEMAYBAY() {
         }
         
         public override string ResourceName {
             get {
-                return "Report_VEMAYBAY.rpt";
+                return "Report_DSVEMAYBAY.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace QLSanBay {
         
         public override string FullResourceName {
             get {
-                return "QLSanBay.Report_VEMAYBAY.rpt";
+                return "QLSanBay.Report_DSVEMAYBAY.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace QLSanBay {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReport_VEMAYBAY : Component, ICachedReport {
+    public class CachedReport_DSVEMAYBAY : Component, ICachedReport {
         
-        public CachedReport_VEMAYBAY() {
+        public CachedReport_DSVEMAYBAY() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace QLSanBay {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Report_VEMAYBAY rpt = new Report_VEMAYBAY();
+            Report_DSVEMAYBAY rpt = new Report_DSVEMAYBAY();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -131,7 +131,7 @@
             this.dgvHHK.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgvHHK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHHK.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvHHK.Location = new System.Drawing.Point(0, 216);
+            this.dgvHHK.Location = new System.Drawing.Point(0, 215);
             this.dgvHHK.Margin = new System.Windows.Forms.Padding(4);
             this.dgvHHK.MultiSelect = false;
             this.dgvHHK.Name = "dgvHHK";
@@ -149,6 +149,7 @@
             this.btnMoi.Size = new System.Drawing.Size(96, 37);
             this.btnMoi.TabIndex = 7;
             this.btnMoi.Text = "Mới";
+            this.btnMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMoi.UseVisualStyleBackColor = true;
             this.btnMoi.Click += new System.EventHandler(this.btnMoi_Click);
             // 
@@ -157,7 +158,7 @@
             this.AcceptButton = this.btnThem;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 401);
+            this.ClientSize = new System.Drawing.Size(637, 400);
             this.Controls.Add(this.btnMoi);
             this.Controls.Add(this.dgvHHK);
             this.Controls.Add(this.btnThoat);

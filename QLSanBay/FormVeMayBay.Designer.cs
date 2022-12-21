@@ -61,6 +61,10 @@ namespace QLSanBay
             this.lblKH = new System.Windows.Forms.Label();
             this.lblDen = new System.Windows.Forms.Label();
             this.lblTrungChuyen = new System.Windows.Forms.Label();
+            this.chkTim = new System.Windows.Forms.CheckBox();
+            this.btnTim = new System.Windows.Forms.Button();
+            this.cboTim = new System.Windows.Forms.ComboBox();
+            this.txtTim = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVMB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbGiaVe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbKLHL)).BeginInit();
@@ -231,7 +235,7 @@ namespace QLSanBay
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(925, 255);
+            this.btnXoa.Location = new System.Drawing.Point(1171, 173);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(105, 35);
             this.btnXoa.TabIndex = 6;
@@ -241,7 +245,7 @@ namespace QLSanBay
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(1046, 255);
+            this.btnCapNhat.Location = new System.Drawing.Point(1171, 214);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(105, 35);
             this.btnCapNhat.TabIndex = 6;
@@ -373,12 +377,61 @@ namespace QLSanBay
             this.lblTrungChuyen.Size = new System.Drawing.Size(0, 17);
             this.lblTrungChuyen.TabIndex = 17;
             // 
+            // chkTim
+            // 
+            this.chkTim.AutoSize = true;
+            this.chkTim.Location = new System.Drawing.Point(343, 269);
+            this.chkTim.Name = "chkTim";
+            this.chkTim.Size = new System.Drawing.Size(53, 21);
+            this.chkTim.TabIndex = 18;
+            this.chkTim.Text = "Tìm";
+            this.chkTim.UseVisualStyleBackColor = true;
+            this.chkTim.CheckedChanged += new System.EventHandler(this.chkTim_CheckedChanged);
+            // 
+            // btnTim
+            // 
+            this.btnTim.Enabled = false;
+            this.btnTim.Location = new System.Drawing.Point(790, 265);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(75, 27);
+            this.btnTim.TabIndex = 19;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
+            // cboTim
+            // 
+            this.cboTim.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTim.Enabled = false;
+            this.cboTim.FormattingEnabled = true;
+            this.cboTim.Items.AddRange(new object[] {
+            "Chọn tiêu chí tìm kiếm",
+            "Theo Mã Số Vé",
+            "Theo Loại Vé",
+            "Theo Hãng Hàng Không"});
+            this.cboTim.Location = new System.Drawing.Point(402, 265);
+            this.cboTim.Name = "cboTim";
+            this.cboTim.Size = new System.Drawing.Size(175, 24);
+            this.cboTim.TabIndex = 20;
+            // 
+            // txtTim
+            // 
+            this.txtTim.Enabled = false;
+            this.txtTim.Location = new System.Drawing.Point(582, 267);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(202, 22);
+            this.txtTim.TabIndex = 21;
+            // 
             // frmVMB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1312, 594);
+            this.Controls.Add(this.txtTim);
+            this.Controls.Add(this.cboTim);
+            this.Controls.Add(this.btnTim);
+            this.Controls.Add(this.chkTim);
             this.Controls.Add(this.lblTrungChuyen);
             this.Controls.Add(this.lblDen);
             this.Controls.Add(this.lblKH);
@@ -460,5 +513,9 @@ namespace QLSanBay
         private System.Windows.Forms.Label lblKH;
         private System.Windows.Forms.Label lblDen;
         private System.Windows.Forms.Label lblTrungChuyen;
+        private System.Windows.Forms.CheckBox chkTim;
+        private System.Windows.Forms.Button btnTim;
+        private System.Windows.Forms.ComboBox cboTim;
+        private System.Windows.Forms.TextBox txtTim;
     }
 }

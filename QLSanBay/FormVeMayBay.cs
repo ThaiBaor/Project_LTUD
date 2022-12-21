@@ -270,5 +270,41 @@ namespace QLSanBay
                 e.Cancel = true;
             }
         }
+
+        private void chkTim_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkTim.Checked == true)
+            {
+                txtTim.Enabled = true;
+                cboTim.Enabled = true;
+                btnTim.Enabled = true;
+            }
+            else
+            {
+                txtTim.Enabled = false;
+                cboTim.Enabled = false;
+                btnTim.Enabled = false;
+            }
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            int index = cboTim.SelectedIndex;
+            switch (index)
+            {
+                case 1:
+                    dgvVMB.DataSource = busVMB.layDSVeMayBay_TheoMaSoVe(txtTim.Text);
+                    break;
+                case 2:
+                    dgvVMB.DataSource = busVMB.layDSVeMayBay_TheoTenLoaiVe(txtTim.Text);
+                    break;
+                case 3:
+                    dgvVMB.DataSource = busVMB.layDSVeMayBay_TheoTenHHK(txtTim.Text);
+                    break;
+                default:
+                    MessageBox.Show("Chưa chọn tiêu chí tìm kiếm.", "Thông báo");
+                    return;
+            }
+        }
     }
 }

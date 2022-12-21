@@ -80,8 +80,32 @@ namespace QLSanBay
 
         private void mnuBaoCao_VeMayBay_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void mnuDSVMB_Click(object sender, EventArgs e)
+        {
             frmReport_VMB ReportForm = new frmReport_VMB();
             ReportForm.ShowDialog();
+        }
+
+        private void mnuVMB_theoMA_Click(object sender, EventArgs e)
+        {
+            frm_ReportVMB_theoMA ReportForm = new frm_ReportVMB_theoMA();
+            ReportForm.ShowDialog();
+        }
+
+        private void mnu_HeThong_Thoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn thoát không?", "Thông báo",MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

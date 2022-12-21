@@ -44,6 +44,90 @@ namespace DAL_QLSanBay
             }
             return dtVMB;
         }
+        public DataTable layDanhSachVeMayBay_TheoMaSoVe(string maSoVe)
+        {
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdVMB = new SqlCommand();
+                cmdVMB.CommandText = "sp_layDSVEMAYBAY_THEOMASOVE";
+                cmdVMB.CommandType = CommandType.StoredProcedure;
+                cmdVMB.Parameters.AddWithValue("@MASOVE",maSoVe);
+                // gán kết nối
+                cmdVMB.Connection = con;
+                // tạo đối tượng dataAdapter
+                daVMB = new SqlDataAdapter(cmdVMB);
+                dtVMB = new DataTable();
+                // fill data 
+                daVMB.Fill(dtVMB);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dtVMB;
+        }
+        public DataTable layDanhSachVeMayBay_TheoTenHHK(string tenHHK)
+        {
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdVMB = new SqlCommand();
+                cmdVMB.CommandText = "sp_layDSVEMAYBAY_THEOTENHHK";
+                cmdVMB.CommandType = CommandType.StoredProcedure;
+                cmdVMB.Parameters.AddWithValue("@TENHANGHK", tenHHK);
+                // gán kết nối
+                cmdVMB.Connection = con;
+                // tạo đối tượng dataAdapter
+                daVMB = new SqlDataAdapter(cmdVMB);
+                dtVMB = new DataTable();
+                // fill data 
+                daVMB.Fill(dtVMB);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dtVMB;
+        }
+        public DataTable layDanhSachVeMayBay_TheoLoaiVe(string tenLoaiVe)
+        {
+            try
+            {
+                // mở kết nối
+                con.Open();
+                // khai báo command
+                cmdVMB = new SqlCommand();
+                cmdVMB.CommandText = "sp_layDSVEMAYBAY_THEOTENLOAIVE";
+                cmdVMB.CommandType = CommandType.StoredProcedure;
+                cmdVMB.Parameters.AddWithValue("@TENLOAIVE", tenLoaiVe);
+                // gán kết nối
+                cmdVMB.Connection = con;
+                // tạo đối tượng dataAdapter
+                daVMB = new SqlDataAdapter(cmdVMB);
+                dtVMB = new DataTable();
+                // fill data 
+                daVMB.Fill(dtVMB);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dtVMB;
+        }
         public int themVeMayBay(ET_VEMAYBAY et)
         {
             try

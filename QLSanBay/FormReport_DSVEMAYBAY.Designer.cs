@@ -30,7 +30,7 @@ namespace QLSanBay
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.Report_VEMAYBAY1 = new QLSanBay.Report_VEMAYBAY();
+            this.Report_VEMAYBAY1 = new QLSanBay.Report_DSVEMAYBAY();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -61,6 +61,6 @@ namespace QLSanBay
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private Report_VEMAYBAY Report_VEMAYBAY1;
+        private Report_DSVEMAYBAY Report_VEMAYBAY1;
     }
 }
